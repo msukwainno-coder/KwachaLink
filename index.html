@@ -2,1050 +2,1044 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#071d50">
-<meta name="description" content="KwachaLink connects people to currency exchange opportunities in Malawi and beyond.">
-<title>KwachaLink — Connect. Exchange. Grow.</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>KwachaLink | Exchange, Pay & Connect</title>
 
-<style>
-:root{
-  --navy:#061b4c;
-  --navy2:#092966;
-  --yellow:#ffdf00;
-  --pink:#00ff4c;
-  --green:#00ff4c;
-  --ink:#10234b;
-  --muted:#63708a;
-  --paper:#f5f8ff;
-  --line:#e2e8f2;
-  --radius:16px;
-}
+    <meta name="description"
+          content="KwachaLink connects people for currency exchange and cross-border payment opportunities. Connect across borders with confidence.">
 
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  font-family:Inter,Arial,sans-serif;
-  color:var(--ink);
-  background:var(--paper)
-}
-a{color:inherit;text-decoration:none}
-button,select{font:inherit}
-.container{width:min(1200px,92%);margin:auto}
+    <meta name="theme-color" content="#0057FF">
 
-.site-header{
-  height:72px;
-  background:linear-gradient(105deg,#061946,#061f59 72%,#063e36);
-  color:white;
-  position:relative;
-  z-index:10
-}
-.header-inner{
-  height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:22px
-}
-.brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  min-width:230px
-}
-.brand-logo{
-  width:51px;
-  height:48px;
-  object-fit:contain
-}
-.brand-copy{
-  display:flex;
-  flex-direction:column;
-  line-height:1.05
-}
-.brand-name{
-  font-size:24px;
-  font-weight:900;
-  letter-spacing:-1px
-}
-.brand-name span{color:var(--yellow)}
-.brand-tagline{
-  font-size:10px;
-  margin-top:5px;
-  color:#e5eafa
-}
-.main-nav{
-  display:flex;
-  align-items:center;
-  gap:28px;
-  height:100%
-}
-.main-nav a{
-  height:100%;
-  display:flex;
-  align-items:center;
-  font-size:12px;
-  font-weight:650;
-  color:#f0f3fc;
-  position:relative
-}
-.main-nav a.active,
-.main-nav a:hover{color:var(--yellow)}
-.main-nav a.active:after{
-  content:"";
-  height:3px;
-  position:absolute;
-  bottom:8px;
-  left:0;
-  right:0;
-  background:var(--yellow);
-  border-radius:3px
-}
-.header-actions{
-  display:flex;
-  align-items:center;
-  gap:10px
-}
-.search-link{font-size:27px;padding:0 7px}
-.language-control{
-  display:flex;
-  align-items:center;
-  gap:4px;
-  border-left:1px solid #ffffff26;
-  padding-left:12px
-}
-.language-control select{
-  background:transparent;
-  color:white;
-  border:0;
-  outline:0;
-  font-size:12px;
-  cursor:pointer
-}
-.language-control option{color:#10234b}
+    <link rel="stylesheet" href="style.css">
 
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  border:0;
-  border-radius:999px;
-  padding:13px 24px;
-  font-weight:750;
-  font-size:12px;
-  cursor:pointer;
-  transition:transform .2s,filter .2s
-}
-.btn:hover{transform:translateY(-2px);filter:brightness(1.05)}
-.btn-outline{
-  border:1.5px solid #fff;
-  background:transparent;
-  color:white
-}
-.btn-gradient{
-  background:linear-gradient(105deg,#ffe500 0%,#ffb52a 38%,#00ff4c 100%);
-  color:#101b3d;
-  box-shadow:0 5px 18px #00ff4c20
-}
-.header-actions .btn{padding:11px 25px;min-width:86px}
-.header-login{min-width:92px!important}
-.menu-toggle{
-  display:none;
-  color:white;
-  background:none;
-  border:1px solid #ffffff55;
-  border-radius:9px;
-  padding:8px 11px;
-  font-size:20px
-}
-
-/* Hero slider */
-.hero{
-  height:398px;
-  position:relative;
-  overflow:hidden;
-  background:#071b4a;
-  color:white
-}
-.hero-slide{
-  position:absolute;
-  inset:0;
-  background-size:cover;
-  background-position:center 40%;
-  opacity:0;
-  visibility:hidden;
-  transition:opacity .6s;
-  display:flex;
-  align-items:center
-}
-.hero-slide.active{opacity:1;visibility:visible}
-.hero-slide:after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
-    90deg,
-    rgba(3,20,59,.96) 0%,
-    rgba(3,20,59,.82) 30%,
-    rgba(3,20,59,.18) 68%,
-    rgba(3,20,59,.06) 100%
-  );
-  pointer-events:none
-}
-.hero-content{position:relative;z-index:1;width:100%}
-.hero-copy{max-width:480px;padding:30px 0 25px}
-.hero-eyebrow{
-  display:inline-block;
-  border:1px solid #ffffff77;
-  border-radius:999px;
-  padding:6px 12px;
-  font-size:11px;
-  font-weight:600;
-  margin-bottom:13px;
-  background:#ffffff0b
-}
-.hero h1{
-  font-size:clamp(30px,3.2vw,42px);
-  line-height:1.08;
-  letter-spacing:-1.5px;
-  margin:0 0 10px;
-  font-weight:900
-}
-.text-yellow{color:var(--yellow)}
-.text-pink{color:var(--green)}
-.hero-copy p{
-  font-size:14px;
-  line-height:1.48;
-  max-width:385px;
-  color:#f0f3fb;
-  margin:0 0 20px
-}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
-.hero-actions .btn{min-width:180px}
-.hero-arrow{
-  position:absolute;
-  z-index:3;
-  top:50%;
-  transform:translateY(-50%);
-  width:38px;
-  height:38px;
-  border:0;
-  border-radius:50%;
-  background:#ffffff38;
-  color:white;
-  font-size:30px;
-  line-height:1;
-  cursor:pointer
-}
-.hero-prev{left:18px}
-.hero-next{right:18px}
-.hero-dots{
-  position:absolute;
-  z-index:3;
-  bottom:18px;
-  left:50%;
-  transform:translateX(-50%);
-  display:flex;
-  gap:8px
-}
-.hero-dots button{
-  width:9px;
-  height:9px;
-  border-radius:50%;
-  border:0;
-  padding:0;
-  background:#fff;
-  cursor:pointer
-}
-.hero-dots button.active{
-  background:var(--yellow);
-  transform:scale(1.2)
-}
-
-/* Feature strip */
-.feature-strip{
-  background:linear-gradient(100deg,#061b4b 0%,#111c56 55%,#00ff4c 100%);
-  color:white;
-  border-top:2px solid var(--green)
-}
-.features{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  padding:17px 0
-}
-.feature{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  padding:0 22px;
-  border-right:1px solid #ffffff18;
-  min-width:0
-}
-.feature:first-child{padding-left:8px}
-.feature:last-child{border:0}
-.feature-icon{
-  flex:0 0 48px;
-  width:48px;
-  height:48px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  font-size:21px;
-  background:linear-gradient(135deg,#00ff4c,#009f3b);
-  box-shadow:0 4px 18px #0002
-}
-.feature:nth-child(2) .feature-icon{
-  background:linear-gradient(135deg,#ffdc00,#ff8e3a)
-}
-.feature h3{font-size:11px;margin:0 0 5px}
-.feature p{font-size:9px;line-height:1.4;margin:0;color:#d9e1f5}
-
-/* Marketplace */
-.marketplace{
-  padding:32px 0 30px;
-  background:linear-gradient(180deg,#f8faff,#f0f5fc)
-}
-.section-heading{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-  margin-bottom:17px
-}
-.section-heading h2{
-  font-size:20px;
-  letter-spacing:-.5px;
-  margin:0 0 6px;
-  font-weight:850
-}
-.heading-dash{
-  display:inline-block;
-  width:18px;
-  height:5px;
-  background:var(--yellow);
-  vertical-align:middle;
-  margin-right:7px;
-  border-radius:2px
-}
-.section-heading h2 [data-i18n]{color:var(--ink)}
-.section-heading p{font-size:12px;color:#364766;margin:0}
-.view-all{
-  font-size:11px;
-  font-weight:700;
-  color:#254477;
-  white-space:nowrap
-}
-.offer-grid{
-  display:grid;
-  grid-template-columns:repeat(6,minmax(0,1fr));
-  gap:14px
-}
-.offer-card{
-  position:relative;
-  background:#fff;
-  border:1px solid #e3eaf5;
-  border-radius:10px;
-  padding:15px 13px 13px;
-  box-shadow:0 4px 14px #17366b0a;
-  min-width:0;
-  display:flex;
-  flex-direction:column;
-  min-height:265px;
-  transition:transform .2s,box-shadow .2s
-}
-.offer-card:hover{
-  box-shadow:0 9px 25px #17366b18;
-  transform:translateY(-2px)
-}
-.favorite{
-  position:absolute;
-  right:10px;
-  top:9px;
-  background:none;
-  border:0;
-  color:var(--green);
-  font-size:22px;
-  line-height:1;
-  cursor:pointer
-}
-.favorite.is-favorite{color:#00c83d}
-.offer-profile{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  padding-right:8px;
-  min-height:48px;
-  margin-bottom:12px
-}
-.offer-avatar{
-  width:43px;
-  height:43px;
-  object-fit:cover;
-  border-radius:50%;
-  border:2px solid #e9edf5;
-  flex-shrink:0
-}
-.offer-profile h3{
-  font-size:10px;
-  line-height:1.2;
-  margin:0 0 5px;
-  font-weight:800;
-  overflow-wrap:anywhere
-}
-.tag{
-  display:inline-block;
-  border-radius:999px;
-  padding:3px 8px;
-  color:white;
-  font-size:8px;
-  font-weight:700
-}
-.tag-buy{background:#159b63}
-.tag-sell{background:#00e644;color:#061b4b}
-.currency-pair{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:6px;
-  font-size:10px;
-  font-weight:800;
-  white-space:nowrap;
-  padding:4px 0 9px;
-  border-bottom:1px solid #f0f2f7
-}
-.offer-amount{text-align:center;font-size:12px;font-weight:800;padding:8px 0 9px}
-.offer-detail{font-size:8.5px;color:#69758b;margin:3px 0;white-space:nowrap}
-.offer-location{font-size:9px;color:#4a5d7c;margin:10px 0 5px}
-.offer-contact{font-size:9px;color:#159b63;margin:0 0 10px}
-.btn-card{
-  margin-top:auto;
-  padding:9px 10px;
-  width:100%;
-  background:#09245b;
-  color:white;
-  border-radius:999px;
-  font-size:10px
-}
-.offer-card:nth-child(even) .btn-card{
-  background:linear-gradient(100deg,#00ff4c,#00d83f);
-  color:#061b4b
-}
-
-/* Community banner */
-.community{
-  padding:28px 0;
-  background:linear-gradient(110deg,#073b9c 0%,#102a88 22%,#00ff4c 51%,#00e644 70%,#ffdf00 100%);
-  color:white;
-  position:relative;
-  overflow:hidden
-}
-.community:after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(145deg,transparent 48%,#ffffff10 48%,transparent 74%);
-  pointer-events:none
-}
-.community-inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:35px;
-  position:relative;
-  z-index:1
-}
-.community-message{
-  display:flex;
-  align-items:center;
-  gap:20px;
-  max-width:480px
-}
-.community-icon{
-  width:80px;
-  height:80px;
-  flex:0 0 80px;
-  border:1px solid #ffffff40;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  font-size:37px
-}
-.community h2{font-size:17px;margin:0 0 6px}
-.community p{
-  font-size:11px;
-  line-height:1.5;
-  margin:0 0 11px;
-  max-width:300px;
-  color:#fff
-}
-.community .btn{padding:10px 19px;font-size:10px}
-.community-stats{display:flex;align-items:center;gap:24px}
-.community-stats div{
-  display:flex;
-  flex-direction:column;
-  padding-left:20px;
-  border-left:1px solid #ffffff35
-}
-.community-stats strong{font-size:18px}
-.community-stats span{font-size:10px;margin-top:4px;color:#fff}
-
-/* Footer */
-.site-footer{background:#04173e;color:white;padding:17px 0}
-.footer-inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px
-}
-.site-footer .brand{min-width:200px}
-.site-footer .brand-logo{width:36px;height:35px}
-.site-footer .brand-name{font-size:17px}
-.site-footer .brand-tagline{font-size:8px}
-.footer-nav{display:flex;gap:22px}
-.footer-nav a,.footer-copyright{font-size:9px;color:#d4dced}
-.footer-copyright{margin:0;text-align:right}
-
-/* Tablet */
-@media(max-width:1050px){
-  .main-nav{gap:16px}
-  .brand{min-width:190px}
-  .header-actions{gap:6px}
-  .header-actions .btn{padding:10px 16px}
-  .offer-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .offer-card{min-height:250px}
-  .features{grid-template-columns:repeat(2,1fr);row-gap:18px}
-  .feature:nth-child(2){border:0}
-  .feature:nth-child(3){padding-left:8px}
-  .community-inner{gap:20px}
-  .community-stats{gap:12px}
-}
-
-/* Mobile */
-@media(max-width:720px){
-  .site-header{height:66px}
-  .header-inner{gap:10px}
-  .brand{min-width:0;gap:6px}
-  .brand-logo{width:40px;height:42px}
-  .brand-name{font-size:19px}
-  .brand-tagline{font-size:8px}
-  .menu-toggle{display:block;order:3}
-  .main-nav{
-    display:none;
-    position:absolute;
-    top:66px;
-    left:0;
-    right:0;
-    height:auto;
-    background:#061b4b;
-    padding:12px 5%;
-    align-items:stretch;
-    flex-direction:column;
-    gap:0;
-    box-shadow:0 12px 20px #0002
-  }
-  .main-nav.open{display:flex}
-  .main-nav a{height:auto;padding:13px 4px}
-  .main-nav a.active:after{bottom:4px;right:auto;width:35px}
-  .header-actions{margin-left:auto}
-  .search-link{display:none}
-  .language-control{padding-left:6px}
-  .header-actions .btn{display:none}
-  .hero{height:475px}
-  .hero-slide{background-position:60% center}
-  .hero-slide:after{
-    background:linear-gradient(90deg,rgba(3,20,59,.92),rgba(3,20,59,.66) 60%,rgba(3,20,59,.15))
-  }
-  .hero-copy{max-width:390px;padding:25px 0}
-  .hero h1{font-size:34px}
-  .hero-copy p{font-size:13px;max-width:320px}
-  .hero-actions{gap:9px}
-  .hero-actions .btn{min-width:0;padding:12px 16px}
-  .hero-arrow{width:32px;height:32px;font-size:25px}
-  .hero-prev{left:8px}
-  .hero-next{right:8px}
-  .features{padding:15px 0;gap:15px 0}
-  .feature{padding:0 9px;gap:9px}
-  .feature-icon{width:38px;height:38px;flex-basis:38px;font-size:17px}
-  .feature h3{font-size:10px}
-  .feature p{font-size:8px}
-  .marketplace{padding:26px 0}
-  .section-heading h2{font-size:17px}
-  .section-heading p{font-size:10px;max-width:260px}
-  .view-all{font-size:10px}
-  .offer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-  .offer-card{padding:12px 10px;min-height:255px}
-  .offer-profile{gap:7px}
-  .offer-avatar{width:38px;height:38px}
-  .offer-profile h3{font-size:9px}
-  .currency-pair{gap:4px;font-size:9px}
-  .offer-detail{font-size:8px}
-  .community-inner{align-items:flex-start;flex-direction:column}
-  .community-message{gap:13px}
-  .community-icon{width:58px;height:58px;flex-basis:58px;font-size:27px}
-  .community h2{font-size:16px}
-  .community-stats{width:100%;justify-content:space-between;gap:6px}
-  .community-stats div{padding-left:10px}
-  .community-stats strong{font-size:15px}
-  .community-stats span{font-size:8px}
-  .footer-inner{flex-wrap:wrap}
-  .footer-nav{order:3;width:100%;justify-content:center;gap:18px}
-  .footer-copyright{font-size:8px}
-}
-
-/* Small phones */
-@media(max-width:380px){
-  .brand-name{font-size:17px}
-  .brand-logo{width:34px}
-  .language-control span{display:none}
-  .hero h1{font-size:29px}
-  .hero-actions .btn{font-size:10px}
-  .offer-card{padding:10px 8px}
-  .offer-avatar{width:32px;height:32px}
-  .offer-profile h3{font-size:8px}
-  .currency-pair{font-size:8px}
-  .community-stats strong{font-size:13px}
-}
-</style>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
-<header class="site-header">
-  <div class="container header-inner">
-    <a class="brand" href="index.html" aria-label="KwachaLink home">
-      <img class="brand-logo" src="Kwachalink Logo Black.png" alt="KwachaLink logo">
-      <span class="brand-copy">
-        <span class="brand-name">Kwacha<span>Link</span></span>
-        <span class="brand-tagline" data-i18n="tagline">Connect. Exchange. Grow.</span>
-      </span>
-    </a>
 
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <!-- ================= HEADER ================= -->
 
-    <nav class="main-nav" id="mainNav">
-      <a class="active" href="index.html" data-i18n="home">Home</a>
-      <a href="explore.html" data-i18n="explore">Explore</a>
-      <a href="explore.html#members" data-i18n="members">Members</a>
-      <a href="about.html" data-i18n="about">About</a>
-      <a href="help.html" data-i18n="help">Help</a>
-    </nav>
+    <header class="site-header">
+        <div class="container header-inner">
 
-    <div class="header-actions">
-      <a class="search-link" href="explore.html" aria-label="Search">⌕</a>
-      <label class="language-control">
-        <span>◎</span>
-        <select id="languageSelect" aria-label="Choose language">
-          <option value="en">EN</option>
-          <option value="ny">NY</option>
-        </select>
-      </label>
-      <a class="btn btn-outline header-login" href="login.html" data-i18n="login">Login</a>
-      <a class="btn btn-gradient header-signup" href="register.html" data-i18n="signup">Sign Up</a>
-    </div>
-  </div>
-</header>
+            <a href="index.html" class="brand" aria-label="KwachaLink home">
+                <img
+                    src="Kwachalink Logo Black.png"
+                    alt="KwachaLink"
+                    class="brand-logo logo-light"
+                >
 
-<main>
-<section class="hero" aria-label="KwachaLink introduction">
+                <img
+                    src="Kwacha logo white.png"
+                    alt="KwachaLink"
+                    class="brand-logo logo-dark"
+                >
+            </a>
 
-  <div class="hero-slide active" data-slide style="background-image:url('person-phone.jpg')">
-    <div class="container hero-content">
-      <div class="hero-copy">
-        <span class="hero-eyebrow" data-i18n="eyebrow">Your Trusted Currency Exchange Community</span>
-        <h1>
-          <span data-i18n="line1">Connect Across</span><br>
-          <span class="text-yellow" data-i18n="line2">Borders.</span>
-          <span class="text-pink" data-i18n="line3">Exchange</span><br>
-          <span data-i18n="line4">with Confidence.</span>
-        </h1>
-        <p data-i18n="heroDesc">KwachaLink brings people together to exchange currencies, discover opportunities and grow together — safely, easily and globally.</p>
-        <div class="hero-actions">
-          <a class="btn btn-gradient" href="explore.html"><span data-i18n="exploreOffers">Explore Offers</span> →</a>
-          <a class="btn btn-outline" href="register.html">♙ <span data-i18n="join">Join KwachaLink</span></a>
+            <button
+                class="mobile-menu-toggle"
+                id="mobileMenuToggle"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="mainNavigation"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="main-navigation" id="mainNavigation">
+
+                <a href="index.html" class="nav-link active"
+                   data-i18n="navHome">Home</a>
+
+                <a href="offers.html" class="nav-link"
+                   data-i18n="navExchange">Exchange</a>
+
+                <a href="payments.html" class="nav-link"
+                   data-i18n="navPayments">Cross-border Payments</a>
+
+                <a href="about.html" class="nav-link"
+                   data-i18n="navAbout">About Us</a>
+
+                <div class="language-selector">
+                    <label for="languageSelect" class="sr-only">
+                        Select language
+                    </label>
+
+                    <select id="languageSelect" aria-label="Select language">
+                        <option value="en">EN</option>
+                        <option value="ny">CH</option>
+                    </select>
+                </div>
+
+                <div class="header-actions">
+                    <a href="login.html" class="btn btn-outline"
+                       data-i18n="login">Log In</a>
+
+                    <a href="register.html" class="btn btn-primary"
+                       data-i18n="signUp">Sign Up</a>
+                </div>
+
+            </nav>
         </div>
-      </div>
-    </div>
-  </div>
+    </header>
 
-  <div class="hero-slide" data-slide style="background-image:url('person-yellow-phone.jpg')">
-    <div class="container hero-content">
-      <div class="hero-copy">
-        <span class="hero-eyebrow" data-i18n="eyebrow2">More Connections. More Opportunities.</span>
-        <h1 data-i18n="slideTitle">Connect Globally.<br>Exchange Confidently.</h1>
-        <p data-i18n="slideDesc">Discover currency exchange opportunities and connect with people across borders.</p>
-        <div class="hero-actions">
-          <a class="btn btn-gradient" href="explore.html" data-i18n="exploreOffers">Explore Offers</a>
-          <a class="btn btn-outline" href="register.html" data-i18n="join">Join KwachaLink</a>
+
+    <main>
+
+        <!-- ================= HERO SECTION ================= -->
+
+        <section class="hero-section">
+            <div class="container hero-grid">
+
+                <div class="hero-content">
+
+                    <span class="eyebrow" data-i18n="heroEyebrow">
+                        YOUR CONNECTION TO GLOBAL PAYMENTS
+                    </span>
+
+                    <h1 data-i18n="heroTitle">
+                        Exchange Money.
+                        <span>Make Cross-Border Payments.</span>
+                        Connect Without Borders.
+                    </h1>
+
+                    <p class="hero-description" data-i18n="heroDescription">
+                        Have foreign currency? Need to pay a supplier abroad?
+                        Connect with people who can help you exchange currencies
+                        and arrange cross-border payments.
+                    </p>
+
+                    <div class="hero-actions">
+
+                        <a href="offers.html" class="btn btn-primary btn-large"
+                           data-i18n="findConnections">
+                            Find Connections
+                        </a>
+
+                        <a href="register.html"
+                           class="btn btn-outline btn-large"
+                           data-i18n="startPosting">
+                            Start Posting
+                        </a>
+
+                    </div>
+
+                    <div class="hero-trust-note">
+                        <span class="trust-dot"></span>
+                        <span data-i18n="heroNote">
+                            Discover opportunities. Connect directly.
+                        </span>
+                    </div>
+
+                </div>
+
+                <div class="hero-visual">
+
+                    <div class="hero-image-main">
+                        <img
+                            src="person-phone.jpg"
+                            alt="Person using a smartphone"
+                            fetchpriority="high"
+                        >
+                    </div>
+
+                    <div class="hero-image-secondary">
+                        <img
+                            src="person-yellow-phone.jpg"
+                            alt="Person connecting through a smartphone"
+                            loading="lazy"
+                        >
+                    </div>
+
+                    <div class="hero-floating-card">
+                        <div class="floating-icon">↔</div>
+                        <div>
+                            <strong data-i18n="floatingTitle">
+                                Global connections
+                            </strong>
+                            <p data-i18n="floatingDescription">
+                                Exchange and payment opportunities
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= HOW IT WORKS ================= -->
+
+        <section class="features-section">
+            <div class="container">
+
+                <div class="section-heading centered">
+                    <span class="eyebrow" data-i18n="howEyebrow">
+                        HOW KWACHALINK WORKS
+                    </span>
+
+                    <h2 data-i18n="howTitle">
+                        One Platform. More Ways to Connect.
+                    </h2>
+
+                    <p data-i18n="howDescription">
+                        Whether you have money to exchange or need to make
+                        an international payment, start by finding the right
+                        connection.
+                    </p>
+                </div>
+
+                <div class="features-grid">
+
+                    <article class="feature-item">
+                        <div class="feature-icon">↔</div>
+                        <h3 data-i18n="featureExchangeTitle">
+                            Currency Exchange
+                        </h3>
+                        <p data-i18n="featureExchangeText">
+                            Share the currency you have and the currency
+                            you want.
+                        </p>
+                    </article>
+
+                    <article class="feature-item">
+                        <div class="feature-icon">◎</div>
+                        <h3 data-i18n="featurePaymentsTitle">
+                            Cross-Border Payments
+                        </h3>
+                        <p data-i18n="featurePaymentsText">
+                            Find people who may help facilitate payments
+                            to suppliers and other recipients abroad.
+                        </p>
+                    </article>
+
+                    <article class="feature-item">
+                        <div class="feature-icon">⌕</div>
+                        <h3 data-i18n="featureDiscoverTitle">
+                            Discover Opportunities
+                        </h3>
+                        <p data-i18n="featureDiscoverText">
+                            Browse offers and payment requests to find
+                            a suitable connection.
+                        </p>
+                    </article>
+
+                    <article class="feature-item">
+                        <div class="feature-icon">↗</div>
+                        <h3 data-i18n="featureConnectTitle">
+                            Connect on WhatsApp
+                        </h3>
+                        <p data-i18n="featureConnectText">
+                            Contact listing owners through WhatsApp after
+                            meeting the subscription requirements.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= MARKETPLACE ================= -->
+
+        <section class="marketplace-section" id="marketplace">
+            <div class="container">
+
+                <div class="section-heading marketplace-heading">
+
+                    <div>
+                        <span class="eyebrow" data-i18n="marketEyebrow">
+                            EXPLORE THE MARKETPLACE
+                        </span>
+
+                        <h2 data-i18n="marketTitle">
+                            Find Your Next Connection
+                        </h2>
+
+                        <p data-i18n="marketDescription">
+                            Explore currency offers and cross-border
+                            payment requests.
+                        </p>
+                    </div>
+
+                    <a href="offers.html" class="text-link"
+                       data-i18n="viewAll">
+                        View All Listings →
+                    </a>
+
+                </div>
+
+
+                <!-- Listing filters -->
+
+                <div class="marketplace-filters" role="group"
+                     aria-label="Filter marketplace listings">
+
+                    <button class="filter-btn active"
+                            type="button"
+                            data-filter="all"
+                            aria-pressed="true">
+                        All Listings
+                    </button>
+
+                    <button class="filter-btn"
+                            type="button"
+                            data-filter="exchange"
+                            aria-pressed="false">
+                        Currency Exchange
+                    </button>
+
+                    <button class="filter-btn"
+                            type="button"
+                            data-filter="payment"
+                            aria-pressed="false">
+                        Payment Requests
+                    </button>
+
+                </div>
+
+
+                <div class="listings-grid" id="listingsGrid">
+
+                    <!-- LISTING 1 -->
+
+                    <article class="listing-card"
+                             data-listing-type="exchange">
+
+                        <div class="listing-card-top">
+                            <span class="listing-type exchange-tag">
+                                Currency Offer
+                            </span>
+
+                            <span class="listing-status">
+                                Offering
+                            </span>
+                        </div>
+
+                        <div class="listing-profile">
+                            <img
+                                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&q=80"
+                                alt="Profile portrait"
+                                class="profile-avatar"
+                                loading="lazy"
+                            >
+
+                            <div class="profile-information">
+                                <h3>Innocent Ghandi</h3>
+                                <span>Currency exchange</span>
+                            </div>
+                        </div>
+
+                        <p class="listing-description">
+                            I have UAE dirhams if you need to pay in Dubai.
+                        </p>
+
+                        <div class="listing-amount">
+                            <span>Amount available</span>
+                            <strong>AED 5,000</strong>
+                        </div>
+
+                        <div class="listing-currency">
+                            <span>AED</span>
+                            <span>UAE Dirham</span>
+                        </div>
+
+                        <div class="listing-actions">
+                            <button
+                                class="btn btn-primary view-details-btn"
+                                type="button"
+                                data-listing-id="kw-001"
+                                data-i18n="viewDetails">
+                                View Details
+                            </button>
+
+                            <button
+                                class="btn btn-whatsapp whatsapp-connect-btn"
+                                type="button"
+                                data-listing-id="kw-001"
+                                data-i18n="whatsapp">
+                                WhatsApp
+                            </button>
+                        </div>
+
+                    </article>
+
+
+                    <!-- LISTING 2 -->
+
+                    <article class="listing-card"
+                             data-listing-type="payment">
+
+                        <div class="listing-card-top">
+                            <span class="listing-type payment-tag">
+                                Payment Request
+                            </span>
+
+                            <span class="listing-status">
+                                Looking for help
+                            </span>
+                        </div>
+
+                        <div class="listing-profile">
+                            <img
+                                src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=160&q=80"
+                                alt="Profile portrait"
+                                class="profile-avatar"
+                                loading="lazy"
+                            >
+
+                            <div class="profile-information">
+                                <h3>Edwin Koloso</h3>
+                                <span>Cross-border payments</span>
+                            </div>
+                        </div>
+
+                        <p class="listing-description">
+                            I need help paying my supplier abroad in Chinese yuan.
+                        </p>
+
+                        <div class="listing-amount">
+                            <span>Amount needed</span>
+                            <strong>CNY 15,000</strong>
+                        </div>
+
+                        <div class="listing-currency">
+                            <span>CNY</span>
+                            <span>Chinese Yuan</span>
+                        </div>
+
+                        <div class="listing-actions">
+                            <button
+                                class="btn btn-primary view-details-btn"
+                                type="button"
+                                data-listing-id="kw-002"
+                                data-i18n="viewDetails">
+                                View Details
+                            </button>
+
+                            <button
+                                class="btn btn-whatsapp whatsapp-connect-btn"
+                                type="button"
+                                data-listing-id="kw-002"
+                                data-i18n="whatsapp">
+                                WhatsApp
+                            </button>
+                        </div>
+
+                    </article>
+
+
+                    <!-- LISTING 3 -->
+
+                    <article class="listing-card"
+                             data-listing-type="exchange">
+
+                        <div class="listing-card-top">
+                            <span class="listing-type exchange-tag">
+                                Currency Offer
+                            </span>
+
+                            <span class="listing-status">
+                                Offering
+                            </span>
+                        </div>
+
+                        <div class="listing-profile">
+                            <img
+                                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=160&q=80"
+                                alt="Profile portrait"
+                                class="profile-avatar"
+                                loading="lazy"
+                            >
+
+                            <div class="profile-information">
+                                <h3>Chrissy C</h3>
+                                <span>Currency exchange</span>
+                            </div>
+                        </div>
+
+                        <p class="listing-description">
+                            I have US dollars available for anyone looking to exchange.
+                        </p>
+
+                        <div class="listing-amount">
+                            <span>Amount available</span>
+                            <strong>USD 2,000</strong>
+                        </div>
+
+                        <div class="listing-currency">
+                            <span>USD</span>
+                            <span>US Dollar</span>
+                        </div>
+
+                        <div class="listing-actions">
+                            <button
+                                class="btn btn-primary view-details-btn"
+                                type="button"
+                                data-listing-id="kw-003"
+                                data-i18n="viewDetails">
+                                View Details
+                            </button>
+
+                            <button
+                                class="btn btn-whatsapp whatsapp-connect-btn"
+                                type="button"
+                                data-listing-id="kw-003"
+                                data-i18n="whatsapp">
+                                WhatsApp
+                            </button>
+                        </div>
+
+                    </article>
+
+
+                    <!-- LISTING 4 -->
+
+                    <article class="listing-card"
+                             data-listing-type="payment">
+
+                        <div class="listing-card-top">
+                            <span class="listing-type payment-tag">
+                                Payment Request
+                            </span>
+
+                            <span class="listing-status">
+                                Looking for help
+                            </span>
+                        </div>
+
+                        <div class="listing-profile">
+                            <img
+                                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=160&q=80"
+                                alt="Profile portrait"
+                                class="profile-avatar"
+                                loading="lazy"
+                            >
+
+                            <div class="profile-information">
+                                <h3>Alex Msukwa</h3>
+                                <span>Cross-border payments</span>
+                            </div>
+                        </div>
+
+                        <p class="listing-description">
+                            I need to pay for goods abroad in Tanzanian shillings.
+                        </p>
+
+                        <div class="listing-amount">
+                            <span>Amount needed</span>
+                            <strong>TZS 2,000,000</strong>
+                        </div>
+
+                        <div class="listing-currency">
+                            <span>TZS</span>
+                            <span>Tanzanian Shilling</span>
+                        </div>
+
+                        <div class="listing-actions">
+                            <button
+                                class="btn btn-primary view-details-btn"
+                                type="button"
+                                data-listing-id="kw-004"
+                                data-i18n="viewDetails">
+                                View Details
+                            </button>
+
+                            <button
+                                class="btn btn-whatsapp whatsapp-connect-btn"
+                                type="button"
+                                data-listing-id="kw-004"
+                                data-i18n="whatsapp">
+                                WhatsApp
+                            </button>
+                        </div>
+
+                    </article>
+
+
+                    <!-- LISTING 5 -->
+
+                    <article class="listing-card"
+                             data-listing-type="exchange">
+
+                        <div class="listing-card-top">
+                            <span class="listing-type exchange-tag">
+                                Currency Offer
+                            </span>
+
+                            <span class="listing-status">
+                                Offering
+                            </span>
+                        </div>
+
+                        <div class="listing-profile">
+                            <img
+                                src="https://images.unsplash.com/photo-1504257432389-52343af06ae3?auto=format&fit=crop&w=160&q=80"
+                                alt="Profile portrait"
+                                class="profile-avatar"
+                                loading="lazy"
+                            >
+
+                            <div class="profile-information">
+                                <h3>Jukalo K</h3>
+                                <span>Currency exchange</span>
+                            </div>
+                        </div>
+
+                        <p class="listing-description">
+                            I have Malawi Kwacha and am looking to exchange foreign currency.
+                        </p>
+
+                        <div class="listing-amount">
+                            <span>Amount available</span>
+                            <strong>MWK 1,000,000</strong>
+                        </div>
+
+                        <div class="listing-currency">
+                            <span>MWK</span>
+                            <span>Malawi Kwacha</span>
+                        </div>
+
+                        <div class="listing-actions">
+                            <button
+                                class="btn btn-primary view-details-btn"
+                                type="button"
+                                data-listing-id="kw-005"
+                                data-i18n="viewDetails">
+                                View Details
+                            </button>
+
+                            <button
+                                class="btn btn-whatsapp whatsapp-connect-btn"
+                                type="button"
+                                data-listing-id="kw-005"
+                                data-i18n="whatsapp">
+                                WhatsApp
+                            </button>
+                        </div>
+
+                    </article>
+
+
+                    <!-- LISTING 6 -->
+
+                    <article class="listing-card"
+                             data-listing-type="payment">
+
+                        <div class="listing-card-top">
+                            <span class="listing-type payment-tag">
+                                Payment Request
+                            </span>
+
+                            <span class="listing-status">
+                                Looking for help
+                            </span>
+                        </div>
+
+                        <div class="listing-profile">
+                            <img
+                                src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=160&q=80"
+                                alt="Profile portrait"
+                                class="profile-avatar"
+                                loading="lazy"
+                            >
+
+                            <div class="profile-information">
+                                <h3>Flora Mto</h3>
+                                <span>Cross-border payments</span>
+                            </div>
+                        </div>
+
+                        <p class="listing-description">
+                            I need help making a payment to a supplier abroad.
+                        </p>
+
+                        <div class="listing-amount">
+                            <span>Amount needed</span>
+                            <strong>See full requirements</strong>
+                        </div>
+
+                        <div class="listing-currency">
+                            <span>International</span>
+                            <span>Payment request</span>
+                        </div>
+
+                        <div class="listing-actions">
+                            <button
+                                class="btn btn-primary view-details-btn"
+                                type="button"
+                                data-listing-id="kw-006"
+                                data-i18n="viewDetails">
+                                View Details
+                            </button>
+
+                            <button
+                                class="btn btn-whatsapp whatsapp-connect-btn"
+                                type="button"
+                                data-listing-id="kw-006"
+                                data-i18n="whatsapp">
+                                WhatsApp
+                            </button>
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <div class="marketplace-bottom">
+                    <a href="offers.html" class="btn btn-outline btn-large"
+                       data-i18n="exploreListings">
+                        Explore All Listings
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= POST A LISTING ================= -->
+
+        <section class="post-cta-section">
+            <div class="container">
+                <div class="post-cta-content">
+
+                    <div>
+                        <span class="eyebrow" data-i18n="postEyebrow">
+                            HAVE AN OFFER OR A PAYMENT NEED?
+                        </span>
+
+                        <h2 data-i18n="postTitle">
+                            Your Next Connection Starts Here.
+                        </h2>
+
+                        <p data-i18n="postDescription">
+                            Register, share what you have or need, and
+                            connect with people looking for opportunities
+                            like yours.
+                        </p>
+                    </div>
+
+                    <a href="register.html"
+                       class="btn btn-yellow btn-large"
+                       data-i18n="createListing">
+                        Register & Create a Listing
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= SUBSCRIPTION ================= -->
+
+        <section class="subscription-section">
+            <div class="container">
+                <div class="subscription-card">
+
+                    <div class="subscription-content">
+                        <span class="eyebrow" data-i18n="subscriptionEyebrow">
+                            UNLOCK YOUR CONNECTIONS
+                        </span>
+
+                        <h2 data-i18n="subscriptionTitle">
+                            Ready to Connect?
+                        </h2>
+
+                        <p data-i18n="subscriptionDescription">
+                            Subscribe to access full listing details
+                            and contact listing owners through WhatsApp.
+                        </p>
+
+                        <ul class="subscription-benefits">
+                            <li>Access full transaction details</li>
+                            <li>Connect with listing owners on WhatsApp</li>
+                            <li>Explore exchange and payment opportunities</li>
+                        </ul>
+                    </div>
+
+                    <div class="subscription-price-panel">
+                        <span data-i18n="subscriptionPriceLabel">
+                            Subscription
+                        </span>
+
+                        <strong>MWK 4,900</strong>
+
+                        <span data-i18n="subscriptionPriceNote">
+                            Subscription period and terms apply
+                        </span>
+
+                        <a href="subscription.html"
+                           class="btn btn-yellow btn-large"
+                           data-i18n="subscribeNow">
+                            Subscribe Now
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= SAFETY ================= -->
+
+        <section class="safety-section">
+            <div class="container safety-inner">
+
+                <div class="safety-icon">!</div>
+
+                <div>
+                    <h2 data-i18n="safetyTitle">
+                        Connect Carefully
+                    </h2>
+
+                    <p data-i18n="safetyDescription">
+                        Always verify the other party, confirm the amount,
+                        rate, fees and payment arrangements, and understand
+                        the risks before sending money. A listing or
+                        subscription is not a guarantee of a transaction.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="site-footer">
+        <div class="container">
+
+            <div class="footer-main">
+
+                <div class="footer-brand">
+                    <a href="index.html" aria-label="KwachaLink home">
+                        <img
+                            src="Kwacha logo white.png"
+                            alt="KwachaLink"
+                            class="footer-logo"
+                            loading="lazy"
+                        >
+                    </a>
+
+                    <p data-i18n="footerDescription">
+                        Connecting Malawi to global opportunities
+                        through currency exchange and cross-border
+                        payment connections.
+                    </p>
+
+                    <strong class="footer-tagline">
+                        Connect. Exchange. Grow.
+                    </strong>
+                </div>
+
+                <div class="footer-column">
+                    <h3 data-i18n="footerExplore">Explore</h3>
+                    <a href="offers.html">Currency Exchange</a>
+                    <a href="payments.html">Cross-border Payments</a>
+                    <a href="register.html">Create an Account</a>
+                    <a href="subscription.html">Subscription</a>
+                </div>
+
+                <div class="footer-column">
+                    <h3 data-i18n="footerAccount">Your Account</h3>
+                    <a href="login.html">Log In</a>
+                    <a href="register.html">Register</a>
+                    <a href="dashboard.html">Dashboard</a>
+                </div>
+
+                <div class="footer-column">
+                    <h3 data-i18n="footerContact">Contact</h3>
+                    <a href="mailto:Elevate2@gmail.com">
+                        Elevate2@gmail.com
+                    </a>
+                    <a href="tel:0991939273">0991 939 273</a>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; <span id="currentYear">2026</span>
+                    KwachaLink. All rights reserved.
+                </p>
+
+                <p class="footer-credit">
+                    Built by <strong>ElevateMw</strong>
+                </p>
+            </div>
+
         </div>
-      </div>
-    </div>
-  </div>
+    </footer>
 
-  <button class="hero-arrow hero-prev" id="prevSlide" aria-label="Previous slide">‹</button>
-  <button class="hero-arrow hero-next" id="nextSlide" aria-label="Next slide">›</button>
 
-  <div class="hero-dots">
-    <button class="active" data-dot="0" aria-label="Show slide 1"></button>
-    <button data-dot="1" aria-label="Show slide 2"></button>
-  </div>
-</section>
+    <!-- ================= ACCESS MESSAGE ================= -->
 
-<section class="feature-strip">
-  <div class="container features">
-    <article class="feature">
-      <span class="feature-icon">💱</span>
-      <div><h3 data-i18n="currencies">Multiple Currencies</h3><p>USD, EUR, GBP, ZAR, CNY &amp; more</p></div>
-    </article>
-    <article class="feature">
-      <span class="feature-icon">🛡️</span>
-      <div><h3 data-i18n="secure">Secure Community</h3><p data-i18n="secureSub">Safer connections and community tools</p></div>
-    </article>
-    <article class="feature">
-      <span class="feature-icon">🌐</span>
-      <div><h3 data-i18n="global">Global Reach</h3><p data-i18n="globalSub">Local and international exchanges</p></div>
-    </article>
-    <article class="feature">
-      <span class="feature-icon">🤝</span>
-      <div><h3 data-i18n="opportunities">Exchange Opportunities</h3><p data-i18n="opportunitiesSub">Connect, support and grow together</p></div>
-    </article>
-  </div>
-</section>
+    <dialog id="subscriptionDialog" class="subscription-dialog">
+        <div class="dialog-content">
 
-<section class="marketplace" id="marketplace">
-  <div class="container">
-    <div class="section-heading">
-      <div>
-        <h2><span class="heading-dash"></span><span data-i18n="marketTitle">Explore the Marketplace</span></h2>
-        <p data-i18n="marketSub">Find exchange opportunities from community members.</p>
-      </div>
-      <a class="view-all" href="explore.html" data-i18n="viewAll">View All Offers →</a>
-    </div>
+            <button
+                type="button"
+                class="dialog-close"
+                id="closeSubscriptionDialog"
+                aria-label="Close dialog">
+                &times;
+            </button>
 
-    <div class="offer-grid">
+            <div class="dialog-icon">↗</div>
 
-      <article class="offer-card">
-        <button class="favorite" aria-label="Favorite offer" aria-pressed="false">♡</button>
-        <div class="offer-profile">
-          <img src="person-phone.jpg" class="offer-avatar" alt="Profile photo">
-          <div><h3>Innocent Ghandi</h3><span class="tag tag-buy" data-i18n="buying">Buying</span></div>
+            <h2 data-i18n="dialogTitle">
+                Unlock This Connection
+            </h2>
+
+            <p data-i18n="dialogDescription">
+                Subscribe to KwachaLink for MWK 4,900 to access full
+                listing details and connect with the listing owner
+                through WhatsApp.
+            </p>
+
+            <a href="subscription.html"
+               class="btn btn-primary btn-large"
+               data-i18n="dialogSubscribe">
+                Continue to Subscription
+            </a>
+
+            <a href="login.html" class="dialog-login"
+               data-i18n="dialogLogin">
+                Already subscribed? Log in
+            </a>
+
         </div>
-        <div class="currency-pair"><span>🇨🇳 CNY</span><span>↔</span><span>🇲🇼 MWK</span></div>
-        <div class="offer-amount">¥ 50,000</div>
-        <p class="offer-detail">Rate: 1 CNY = 180 MWK</p>
-        <p class="offer-detail">Min: 5,000 | Max: 50,000</p>
-        <p class="offer-location">♧ Lilongwe, Malawi</p>
-        <p class="offer-contact">◉ Chat · WhatsApp</p>
-        <a class="btn btn-card" href="explore.html" data-i18n="viewOffer">View Offer</a>
-      </article>
+    </dialog>
 
-      <article class="offer-card">
-        <button class="favorite" aria-label="Favorite offer" aria-pressed="false">♡</button>
-        <div class="offer-profile">
-          <img src="person-yellow-phone.jpg" class="offer-avatar" alt="Profile photo">
-          <div><h3>Edwin Koloso</h3><span class="tag tag-sell" data-i18n="selling">Selling</span></div>
-        </div>
-        <div class="currency-pair"><span>🇿🇦 ZAR</span><span>↔</span><span>🇲🇼 MWK</span></div>
-        <div class="offer-amount">R 20,000</div>
-        <p class="offer-detail">Rate: 1 ZAR = 110 MWK</p>
-        <p class="offer-detail">Min: 2,000 | Max: 20,000</p>
-        <p class="offer-location">♧ Blantyre, Malawi</p>
-        <p class="offer-contact">◉ Chat · WhatsApp</p>
-        <a class="btn btn-card" href="explore.html" data-i18n="viewOffer">View Offer</a>
-      </article>
 
-      <article class="offer-card">
-        <button class="favorite" aria-label="Favorite offer" aria-pressed="false">♡</button>
-        <div class="offer-profile">
-          <img src="currency-dirham.jpg" class="offer-avatar" alt="Profile photo">
-          <div><h3>Chrissy C</h3><span class="tag tag-buy" data-i18n="buying">Buying</span></div>
-        </div>
-        <div class="currency-pair"><span>🇦🇪 AED</span><span>↔</span><span>🇲🇼 MWK</span></div>
-        <div class="offer-amount">AED 15,000</div>
-        <p class="offer-detail">Rate: 1 AED = 300 MWK</p>
-        <p class="offer-detail">Min: 1,000 | Max: 15,000</p>
-        <p class="offer-location">♧ Lilongwe, Malawi</p>
-        <p class="offer-contact">◉ Chat · WhatsApp</p>
-        <a class="btn btn-card" href="explore.html" data-i18n="viewOffer">View Offer</a>
-      </article>
+    <script>
+        /*
+         * Small homepage enhancements.
+         * Authentication and subscription access must ultimately
+         * be validated by the backend, not just browser JavaScript.
+         */
 
-      <article class="offer-card">
-        <button class="favorite" aria-label="Favorite offer" aria-pressed="false">♡</button>
-        <div class="offer-profile">
-          <img src="person-phone.jpg" class="offer-avatar" alt="Profile photo">
-          <div><h3>Alex Msukwa</h3><span class="tag tag-sell" data-i18n="selling">Selling</span></div>
-        </div>
-        <div class="currency-pair"><span>🇺🇸 USD</span><span>↔</span><span>🇲🇼 MWK</span></div>
-        <div class="offer-amount">$ 5,000</div>
-        <p class="offer-detail">Rate: 1 USD = 1,750 MWK</p>
-        <p class="offer-detail">Min: 500 | Max: 5,000</p>
-        <p class="offer-location">♧ Zomba, Malawi</p>
-        <p class="offer-contact">◉ Chat · WhatsApp</p>
-        <a class="btn btn-card" href="explore.html" data-i18n="viewOffer">View Offer</a>
-      </article>
+        document.addEventListener("DOMContentLoaded", function () {
 
-      <article class="offer-card">
-        <button class="favorite" aria-label="Favorite offer" aria-pressed="false">♡</button>
-        <div class="offer-profile">
-          <img src="currency-tanzania.jpg" class="offer-avatar" alt="Profile photo">
-          <div><h3>Jukalo K</h3><span class="tag tag-buy" data-i18n="buying">Buying</span></div>
-        </div>
-        <div class="currency-pair"><span>🇹🇿 TZS</span><span>↔</span><span>🇲🇼 MWK</span></div>
-        <div class="offer-amount">TSh 1,000,000</div>
-        <p class="offer-detail">Rate: 1 TZS = 4.2 MWK</p>
-        <p class="offer-detail">Min: 100,000 | Max: 1,000,000</p>
-        <p class="offer-location">♧ Blantyre, Malawi</p>
-        <p class="offer-contact">◉ Chat · WhatsApp</p>
-        <a class="btn btn-card" href="explore.html" data-i18n="viewOffer">View Offer</a>
-      </article>
+            // Footer year
+            const year = document.getElementById("currentYear");
 
-      <article class="offer-card">
-        <button class="favorite" aria-label="Favorite offer" aria-pressed="false">♡</button>
-        <div class="offer-profile">
-          <img src="currency-dirham.jpg" class="offer-avatar" alt="Profile photo">
-          <div><h3>Flora Mto</h3><span class="tag tag-sell" data-i18n="selling">Selling</span></div>
-        </div>
-        <div class="currency-pair"><span>🇦🇪 AED</span><span>↔</span><span>🇲🇼 MWK</span></div>
-        <div class="offer-amount">AED 10,000</div>
-        <p class="offer-detail">Rate: 1 AED = 295 MWK</p>
-        <p class="offer-detail">Min: 500 | Max: 10,000</p>
-        <p class="offer-location">♧ Lilongwe, Malawi</p>
-        <p class="offer-contact">◉ Chat · WhatsApp</p>
-        <a class="btn btn-card" href="explore.html" data-i18n="viewOffer">View Offer</a>
-      </article>
+            if (year) {
+                year.textContent = new Date().getFullYear();
+            }
 
-    </div>
-  </div>
-</section>
+            // Mobile navigation
+            const menuToggle =
+                document.getElementById("mobileMenuToggle");
 
-<section class="community">
-  <div class="container community-inner">
-    <div class="community-message">
-      <span class="community-icon">📱</span>
-      <div>
-        <h2 data-i18n="joinCommunity">Join a growing community</h2>
-        <p data-i18n="communityDesc">Whether you want to exchange, support or grow, KwachaLink helps you connect with opportunities.</p>
-        <a class="btn btn-gradient" href="register.html" data-i18n="createAccount">Create Your Account →</a>
-      </div>
-    </div>
+            const navigation =
+                document.getElementById("mainNavigation");
 
-    <div class="community-stats">
-      <div><strong>6+</strong><span data-i18n="activeMembers">Community profiles</span></div>
-      <div><strong>Multiple</strong><span data-i18n="currencies">Currencies</span></div>
-      <div><strong>Secure</strong><span data-i18n="platform">Platform tools</span></div>
-    </div>
-  </div>
-</section>
-</main>
+            if (menuToggle && navigation) {
+                menuToggle.addEventListener("click", function () {
+                    const isOpen =
+                        navigation.classList.toggle("is-open");
 
-<footer class="site-footer">
-  <div class="container footer-inner">
-    <a class="brand" href="index.html">
-      <img class="brand-logo" src="Kwacha logo white.png" alt="KwachaLink logo">
-      <span class="brand-copy">
-        <span class="brand-name">Kwacha<span>Link</span></span>
-        <span class="brand-tagline" data-i18n="tagline">Connect. Exchange. Grow.</span>
-      </span>
-    </a>
+                    menuToggle.setAttribute(
+                        "aria-expanded",
+                        String(isOpen)
+                    );
+                });
+            }
 
-    <nav class="footer-nav">
-      <a href="index.html" data-i18n="home">Home</a>
-      <a href="explore.html" data-i18n="explore">Explore</a>
-      <a href="explore.html#members" data-i18n="members">Members</a>
-      <a href="about.html" data-i18n="about">About</a>
-      <a href="help.html" data-i18n="help">Help</a>
-    </nav>
+            // Marketplace filters
+            const filterButtons =
+                document.querySelectorAll(".filter-btn");
 
-    <p class="footer-copyright">© <span id="year"></span> KwachaLink · Built by ElevateMw</p>
-  </div>
-</footer>
+            const listingCards =
+                document.querySelectorAll(".listing-card");
 
-<script>
-(()=>{
-'use strict';
+            filterButtons.forEach(function (button) {
+                button.addEventListener("click", function () {
 
-const translations={
-en:{
-tagline:'Connect. Exchange. Grow.',
-home:'Home',
-explore:'Explore',
-members:'Members',
-about:'About',
-help:'Help',
-login:'Login',
-signup:'Sign Up',
-eyebrow:'Your Trusted Currency Exchange Community',
-line1:'Connect Across',
-line2:'Borders.',
-line3:'Exchange',
-line4:'with Confidence.',
-heroDesc:'KwachaLink brings people together to exchange currencies, discover opportunities and grow together — safely, easily and globally.',
-exploreOffers:'Explore Offers',
-join:'Join KwachaLink',
-eyebrow2:'More Connections. More Opportunities.',
-slideTitle:'Connect Globally.<br>Exchange Confidently.',
-slideDesc:'Discover currency exchange opportunities and connect with people across borders.',
-currencies:'Multiple Currencies',
-secure:'Secure Community',
-secureSub:'Safer connections and community tools',
-global:'Global Reach',
-globalSub:'Local and international exchanges',
-opportunities:'Exchange Opportunities',
-opportunitiesSub:'Connect, support and grow together',
-marketTitle:'Explore the Marketplace',
-marketSub:'Find exchange opportunities from community members.',
-viewAll:'View All Offers →',
-buying:'Buying',
-selling:'Selling',
-viewOffer:'View Offer',
-joinCommunity:'Join a growing community',
-communityDesc:'Whether you want to exchange, support or grow, KwachaLink helps you connect with opportunities.',
-createAccount:'Create Your Account →',
-activeMembers:'Community profiles',
-platform:'Platform tools'
-},
-ny:{
-tagline:'Lumikizanani. Sinthanitsani. Kulani.',
-home:'Poyambira',
-explore:'Onani',
-members:'Mamembala',
-about:'Za ife',
-help:'Thandizo',
-login:'Lowani',
-signup:'Lembetsani',
-eyebrow:'Gulu Lodalirika Losinthana Ndalama',
-line1:'Lumikizanani',
-line2:'Kudutsa Malire.',
-line3:'Sinthanitsani',
-line4:'Molimba Mtima.',
-heroDesc:'KwachaLink imathandiza anthu kulumikizana, kusinthana ndalama ndi kupeza mwayi wokulira limodzi.',
-exploreOffers:'Onani Zopereka',
-join:'Lowani KwachaLink',
-eyebrow2:'Kulumikizana Kwambiri. Mwayi Wambiri.',
-slideTitle:'Lumikizanani Padziko Lonse. Sinthanitsani Molimba Mtima.',
-slideDesc:'Pezani mwayi wosinthana ndalama ndi kulumikizana ndi anthu kudutsa malire.',
-currencies:'Ndalama Zosiyanasiyana',
-secure:'Gulu Lotetezeka',
-secureSub:'Kulumikizana kotetezeka ndi zida za gulu',
-global:'Padziko Lonse',
-globalSub:'Kusinthana kwanuko ndi kwamayiko ena',
-opportunities:'Mwayi Wosinthana',
-opportunitiesSub:'Lumikizanani, thandizani ndi kukulira limodzi',
-marketTitle:'Onani Msika',
-marketSub:'Pezani mwayi wosinthana kuchokera kwa mamembala.',
-viewAll:'Onani Zonse →',
-buying:'Akugula',
-selling:'Akugulitsa',
-viewOffer:'Onani Chopereka',
-joinCommunity:'Lowani m’gulu lomwe likukula',
-communityDesc:'KwachaLink imakuthandizani kulumikizana ndi anthu ndi mwayi watsopano.',
-createAccount:'Pangani Akaunti →',
-activeMembers:'Mbiri za gulu',
-platform:'Zida za nsanja'
-}
-};
+                    const filter = button.dataset.filter;
 
-const langSelect=document.getElementById('languageSelect');
+                    filterButtons.forEach(function (item) {
+                        item.classList.remove("active");
+                        item.setAttribute("aria-pressed", "false");
+                    });
 
-function setLanguage(lang){
-  const dict=translations[lang]||translations.en;
-  document.documentElement.lang=lang==='ny'?'ny':'en';
+                    button.classList.add("active");
+                    button.setAttribute("aria-pressed", "true");
 
-  document.querySelectorAll('[data-i18n]').forEach(el=>{
-    const key=el.dataset.i18n;
-    if(dict[key]){
-      if(key==='slideTitle'){
-        el.innerHTML=dict[key];
-      }else{
-        el.textContent=dict[key];
-      }
-    }
-  });
+                    listingCards.forEach(function (card) {
+                        const matches =
+                            filter === "all" ||
+                            card.dataset.listingType === filter;
 
-  try{
-    localStorage.setItem('kwachal-language',lang);
-  }catch(e){}
-}
+                        card.hidden = !matches;
+                    });
+                });
+            });
 
-try{
-  const saved=localStorage.getItem('kwachal-language');
-  if(saved&&translations[saved])langSelect.value=saved;
-}catch(e){}
+            // Subscription dialog
+            const dialog =
+                document.getElementById("subscriptionDialog");
 
-setLanguage(langSelect.value);
-langSelect.addEventListener('change',e=>setLanguage(e.target.value));
+            const closeDialog =
+                document.getElementById("closeSubscriptionDialog");
 
-/* Mobile navigation */
-const menu=document.getElementById('mainNav');
-const toggle=document.getElementById('menuToggle');
+            document.querySelectorAll(
+                ".view-details-btn, .whatsapp-connect-btn"
+            ).forEach(function (button) {
 
-toggle.addEventListener('click',()=>{
-  const open=menu.classList.toggle('open');
-  toggle.setAttribute('aria-expanded',String(open));
-  toggle.textContent=open?'×':'☰';
-});
+                button.addEventListener("click", function () {
 
-menu.querySelectorAll('a').forEach(a=>{
-  a.addEventListener('click',()=>{
-    menu.classList.remove('open');
-    toggle.setAttribute('aria-expanded','false');
-    toggle.textContent='☰';
-  });
-});
+                    /*
+                     * This is a front-end placeholder.
+                     * The next integration step must check the signed-in
+                     * user's actual subscription on the backend.
+                     * Do not open a WhatsApp chat or expose contact
+                     * information until access has been authorised.
+                     */
 
-/* Hero slider */
-const slides=[...document.querySelectorAll('[data-slide]')];
-const dots=[...document.querySelectorAll('[data-dot]')];
-let current=0;
-let timer;
+                    if (dialog && !dialog.open) {
+                        dialog.showModal();
+                    }
+                });
+            });
 
-function showSlide(n){
-  current=(n+slides.length)%slides.length;
-  slides.forEach((s,i)=>s.classList.toggle('active',i===current));
-  dots.forEach((d,i)=>d.classList.toggle('active',i===current));
-}
+            if (closeDialog && dialog) {
+                closeDialog.addEventListener("click", function () {
+                    dialog.close();
+                });
+            }
 
-function restart(){
-  clearInterval(timer);
-  timer=setInterval(()=>showSlide(current+1),6500);
-}
+            if (dialog) {
+                dialog.addEventListener("click", function (event) {
+                    if (event.target === dialog) {
+                        dialog.close();
+                    }
+                });
+            }
 
-document.getElementById('prevSlide').addEventListener('click',()=>{
-  showSlide(current-1);
-  restart();
-});
+            // Language selector.
+            // Full English/Chichewa translations are added in script.js.
+            const languageSelect =
+                document.getElementById("languageSelect");
 
-document.getElementById('nextSlide').addEventListener('click',()=>{
-  showSlide(current+1);
-  restart();
-});
+            if (languageSelect) {
+                languageSelect.addEventListener("change", function () {
+                    document.documentElement.lang =
+                        languageSelect.value === "ny" ? "ny" : "en";
+                });
+            }
 
-dots.forEach(d=>{
-  d.addEventListener('click',()=>{
-    showSlide(Number(d.dataset.dot));
-    restart();
-  });
-});
+        });
+    </script>
 
-restart();
-
-/* Favorite buttons */
-document.querySelectorAll('.favorite').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    const on=btn.classList.toggle('is-favorite');
-    btn.textContent=on?'♥':'♡';
-    btn.setAttribute('aria-pressed',String(on));
-  });
-});
-
-/* Current year */
-document.getElementById('year').textContent=new Date().getFullYear();
-
-})();
-</script>
 </body>
 </html>

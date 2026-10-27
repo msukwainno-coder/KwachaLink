@@ -1,32 +1,1051 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#10265c"><meta name="description" content="KwachaLink connects buyers and payment helpers across borders."><title>KwachaLink | Your global payment connections</title><link rel="stylesheet" href="style.css"></head><body>
-<header class="site-header"><div class="container nav-wrap"><a class="brand" href="index.html"><span class="brand-mark">K</span>KwachaLink</a><nav class="nav-links" data-nav-links aria-label="Main navigation"><a class="active" href="index.html">Home</a><a href="dashboard.html">Dashboard</a><a href="#marketplace">Marketplace</a><a href="explore.html">Explore</a><a href="post.html">Join KwachaLink</a><a href="messages.html">Messages</a><a href="about.html">About</a><a href="help.html">Help</a></nav><div class="nav-actions"><a class="btn btn-outline" href="login.html">Log in</a><a class="btn btn-primary" href="register.html">Create account</a><button class="menu-toggle" data-menu-toggle aria-label="Open menu" aria-expanded="false">☰</button></div></div></header>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#071d50">
+<meta name="description" content="KwachaLink connects people to currency exchange opportunities in Malawi and beyond.">
+<title>KwachaLink — Connect. Exchange. Grow.</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy:#061b4c;
+  --navy2:#092966;
+  --yellow:#ffdf00;
+  --pink:#00ff4c;
+  --green:#00ff4c;
+  --ink:#10234b;
+  --muted:#63708a;
+  --paper:#f5f8ff;
+  --line:#e2e8f2;
+  --radius:16px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,Arial,sans-serif;
+  color:var(--ink);
+  background:var(--paper)
+}
+a{color:inherit;text-decoration:none}
+button,select{font:inherit}
+.container{width:min(1200px,92%);margin:auto}
+
+.site-header{
+  height:72px;
+  background:linear-gradient(105deg,#061946,#061f59 72%,#063e36);
+  color:white;
+  position:relative;
+  z-index:10
+}
+.header-inner{
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:22px
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:230px
+}
+.brand-logo{
+  width:51px;
+  height:48px;
+  object-fit:contain
+}
+.brand-copy{
+  display:flex;
+  flex-direction:column;
+  line-height:1.05
+}
+.brand-name{
+  font-size:24px;
+  font-weight:900;
+  letter-spacing:-1px
+}
+.brand-name span{color:var(--yellow)}
+.brand-tagline{
+  font-size:10px;
+  margin-top:5px;
+  color:#e5eafa
+}
+.main-nav{
+  display:flex;
+  align-items:center;
+  gap:28px;
+  height:100%
+}
+.main-nav a{
+  height:100%;
+  display:flex;
+  align-items:center;
+  font-size:12px;
+  font-weight:650;
+  color:#f0f3fc;
+  position:relative
+}
+.main-nav a.active,
+.main-nav a:hover{color:var(--yellow)}
+.main-nav a.active:after{
+  content:"";
+  height:3px;
+  position:absolute;
+  bottom:8px;
+  left:0;
+  right:0;
+  background:var(--yellow);
+  border-radius:3px
+}
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:10px
+}
+.search-link{font-size:27px;padding:0 7px}
+.language-control{
+  display:flex;
+  align-items:center;
+  gap:4px;
+  border-left:1px solid #ffffff26;
+  padding-left:12px
+}
+.language-control select{
+  background:transparent;
+  color:white;
+  border:0;
+  outline:0;
+  font-size:12px;
+  cursor:pointer
+}
+.language-control option{color:#10234b}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  border:0;
+  border-radius:999px;
+  padding:13px 24px;
+  font-weight:750;
+  font-size:12px;
+  cursor:pointer;
+  transition:transform .2s,filter .2s
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.05)}
+.btn-outline{
+  border:1.5px solid #fff;
+  background:transparent;
+  color:white
+}
+.btn-gradient{
+  background:linear-gradient(105deg,#ffe500 0%,#ffb52a 38%,#00ff4c 100%);
+  color:#101b3d;
+  box-shadow:0 5px 18px #00ff4c20
+}
+.header-actions .btn{padding:11px 25px;min-width:86px}
+.header-login{min-width:92px!important}
+.menu-toggle{
+  display:none;
+  color:white;
+  background:none;
+  border:1px solid #ffffff55;
+  border-radius:9px;
+  padding:8px 11px;
+  font-size:20px
+}
+
+/* Hero slider */
+.hero{
+  height:398px;
+  position:relative;
+  overflow:hidden;
+  background:#071b4a;
+  color:white
+}
+.hero-slide{
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center 40%;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .6s;
+  display:flex;
+  align-items:center
+}
+.hero-slide.active{opacity:1;visibility:visible}
+.hero-slide:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    90deg,
+    rgba(3,20,59,.96) 0%,
+    rgba(3,20,59,.82) 30%,
+    rgba(3,20,59,.18) 68%,
+    rgba(3,20,59,.06) 100%
+  );
+  pointer-events:none
+}
+.hero-content{position:relative;z-index:1;width:100%}
+.hero-copy{max-width:480px;padding:30px 0 25px}
+.hero-eyebrow{
+  display:inline-block;
+  border:1px solid #ffffff77;
+  border-radius:999px;
+  padding:6px 12px;
+  font-size:11px;
+  font-weight:600;
+  margin-bottom:13px;
+  background:#ffffff0b
+}
+.hero h1{
+  font-size:clamp(30px,3.2vw,42px);
+  line-height:1.08;
+  letter-spacing:-1.5px;
+  margin:0 0 10px;
+  font-weight:900
+}
+.text-yellow{color:var(--yellow)}
+.text-pink{color:var(--green)}
+.hero-copy p{
+  font-size:14px;
+  line-height:1.48;
+  max-width:385px;
+  color:#f0f3fb;
+  margin:0 0 20px
+}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.hero-actions .btn{min-width:180px}
+.hero-arrow{
+  position:absolute;
+  z-index:3;
+  top:50%;
+  transform:translateY(-50%);
+  width:38px;
+  height:38px;
+  border:0;
+  border-radius:50%;
+  background:#ffffff38;
+  color:white;
+  font-size:30px;
+  line-height:1;
+  cursor:pointer
+}
+.hero-prev{left:18px}
+.hero-next{right:18px}
+.hero-dots{
+  position:absolute;
+  z-index:3;
+  bottom:18px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:8px
+}
+.hero-dots button{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  border:0;
+  padding:0;
+  background:#fff;
+  cursor:pointer
+}
+.hero-dots button.active{
+  background:var(--yellow);
+  transform:scale(1.2)
+}
+
+/* Feature strip */
+.feature-strip{
+  background:linear-gradient(100deg,#061b4b 0%,#111c56 55%,#00ff4c 100%);
+  color:white;
+  border-top:2px solid var(--green)
+}
+.features{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  padding:17px 0
+}
+.feature{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:0 22px;
+  border-right:1px solid #ffffff18;
+  min-width:0
+}
+.feature:first-child{padding-left:8px}
+.feature:last-child{border:0}
+.feature-icon{
+  flex:0 0 48px;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-size:21px;
+  background:linear-gradient(135deg,#00ff4c,#009f3b);
+  box-shadow:0 4px 18px #0002
+}
+.feature:nth-child(2) .feature-icon{
+  background:linear-gradient(135deg,#ffdc00,#ff8e3a)
+}
+.feature h3{font-size:11px;margin:0 0 5px}
+.feature p{font-size:9px;line-height:1.4;margin:0;color:#d9e1f5}
+
+/* Marketplace */
+.marketplace{
+  padding:32px 0 30px;
+  background:linear-gradient(180deg,#f8faff,#f0f5fc)
+}
+.section-heading{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  margin-bottom:17px
+}
+.section-heading h2{
+  font-size:20px;
+  letter-spacing:-.5px;
+  margin:0 0 6px;
+  font-weight:850
+}
+.heading-dash{
+  display:inline-block;
+  width:18px;
+  height:5px;
+  background:var(--yellow);
+  vertical-align:middle;
+  margin-right:7px;
+  border-radius:2px
+}
+.section-heading h2 [data-i18n]{color:var(--ink)}
+.section-heading p{font-size:12px;color:#364766;margin:0}
+.view-all{
+  font-size:11px;
+  font-weight:700;
+  color:#254477;
+  white-space:nowrap
+}
+.offer-grid{
+  display:grid;
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  gap:14px
+}
+.offer-card{
+  position:relative;
+  background:#fff;
+  border:1px solid #e3eaf5;
+  border-radius:10px;
+  padding:15px 13px 13px;
+  box-shadow:0 4px 14px #17366b0a;
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  min-height:265px;
+  transition:transform .2s,box-shadow .2s
+}
+.offer-card:hover{
+  box-shadow:0 9px 25px #17366b18;
+  transform:translateY(-2px)
+}
+.favorite{
+  position:absolute;
+  right:10px;
+  top:9px;
+  background:none;
+  border:0;
+  color:var(--green);
+  font-size:22px;
+  line-height:1;
+  cursor:pointer
+}
+.favorite.is-favorite{color:#00c83d}
+.offer-profile{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding-right:8px;
+  min-height:48px;
+  margin-bottom:12px
+}
+.offer-avatar{
+  width:43px;
+  height:43px;
+  object-fit:cover;
+  border-radius:50%;
+  border:2px solid #e9edf5;
+  flex-shrink:0
+}
+.offer-profile h3{
+  font-size:10px;
+  line-height:1.2;
+  margin:0 0 5px;
+  font-weight:800;
+  overflow-wrap:anywhere
+}
+.tag{
+  display:inline-block;
+  border-radius:999px;
+  padding:3px 8px;
+  color:white;
+  font-size:8px;
+  font-weight:700
+}
+.tag-buy{background:#159b63}
+.tag-sell{background:#00e644;color:#061b4b}
+.currency-pair{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  font-size:10px;
+  font-weight:800;
+  white-space:nowrap;
+  padding:4px 0 9px;
+  border-bottom:1px solid #f0f2f7
+}
+.offer-amount{text-align:center;font-size:12px;font-weight:800;padding:8px 0 9px}
+.offer-detail{font-size:8.5px;color:#69758b;margin:3px 0;white-space:nowrap}
+.offer-location{font-size:9px;color:#4a5d7c;margin:10px 0 5px}
+.offer-contact{font-size:9px;color:#159b63;margin:0 0 10px}
+.btn-card{
+  margin-top:auto;
+  padding:9px 10px;
+  width:100%;
+  background:#09245b;
+  color:white;
+  border-radius:999px;
+  font-size:10px
+}
+.offer-card:nth-child(even) .btn-card{
+  background:linear-gradient(100deg,#00ff4c,#00d83f);
+  color:#061b4b
+}
+
+/* Community banner */
+.community{
+  padding:28px 0;
+  background:linear-gradient(110deg,#073b9c 0%,#102a88 22%,#00ff4c 51%,#00e644 70%,#ffdf00 100%);
+  color:white;
+  position:relative;
+  overflow:hidden
+}
+.community:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(145deg,transparent 48%,#ffffff10 48%,transparent 74%);
+  pointer-events:none
+}
+.community-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:35px;
+  position:relative;
+  z-index:1
+}
+.community-message{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  max-width:480px
+}
+.community-icon{
+  width:80px;
+  height:80px;
+  flex:0 0 80px;
+  border:1px solid #ffffff40;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-size:37px
+}
+.community h2{font-size:17px;margin:0 0 6px}
+.community p{
+  font-size:11px;
+  line-height:1.5;
+  margin:0 0 11px;
+  max-width:300px;
+  color:#fff
+}
+.community .btn{padding:10px 19px;font-size:10px}
+.community-stats{display:flex;align-items:center;gap:24px}
+.community-stats div{
+  display:flex;
+  flex-direction:column;
+  padding-left:20px;
+  border-left:1px solid #ffffff35
+}
+.community-stats strong{font-size:18px}
+.community-stats span{font-size:10px;margin-top:4px;color:#fff}
+
+/* Footer */
+.site-footer{background:#04173e;color:white;padding:17px 0}
+.footer-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px
+}
+.site-footer .brand{min-width:200px}
+.site-footer .brand-logo{width:36px;height:35px}
+.site-footer .brand-name{font-size:17px}
+.site-footer .brand-tagline{font-size:8px}
+.footer-nav{display:flex;gap:22px}
+.footer-nav a,.footer-copyright{font-size:9px;color:#d4dced}
+.footer-copyright{margin:0;text-align:right}
+
+/* Tablet */
+@media(max-width:1050px){
+  .main-nav{gap:16px}
+  .brand{min-width:190px}
+  .header-actions{gap:6px}
+  .header-actions .btn{padding:10px 16px}
+  .offer-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .offer-card{min-height:250px}
+  .features{grid-template-columns:repeat(2,1fr);row-gap:18px}
+  .feature:nth-child(2){border:0}
+  .feature:nth-child(3){padding-left:8px}
+  .community-inner{gap:20px}
+  .community-stats{gap:12px}
+}
+
+/* Mobile */
+@media(max-width:720px){
+  .site-header{height:66px}
+  .header-inner{gap:10px}
+  .brand{min-width:0;gap:6px}
+  .brand-logo{width:40px;height:42px}
+  .brand-name{font-size:19px}
+  .brand-tagline{font-size:8px}
+  .menu-toggle{display:block;order:3}
+  .main-nav{
+    display:none;
+    position:absolute;
+    top:66px;
+    left:0;
+    right:0;
+    height:auto;
+    background:#061b4b;
+    padding:12px 5%;
+    align-items:stretch;
+    flex-direction:column;
+    gap:0;
+    box-shadow:0 12px 20px #0002
+  }
+  .main-nav.open{display:flex}
+  .main-nav a{height:auto;padding:13px 4px}
+  .main-nav a.active:after{bottom:4px;right:auto;width:35px}
+  .header-actions{margin-left:auto}
+  .search-link{display:none}
+  .language-control{padding-left:6px}
+  .header-actions .btn{display:none}
+  .hero{height:475px}
+  .hero-slide{background-position:60% center}
+  .hero-slide:after{
+    background:linear-gradient(90deg,rgba(3,20,59,.92),rgba(3,20,59,.66) 60%,rgba(3,20,59,.15))
+  }
+  .hero-copy{max-width:390px;padding:25px 0}
+  .hero h1{font-size:34px}
+  .hero-copy p{font-size:13px;max-width:320px}
+  .hero-actions{gap:9px}
+  .hero-actions .btn{min-width:0;padding:12px 16px}
+  .hero-arrow{width:32px;height:32px;font-size:25px}
+  .hero-prev{left:8px}
+  .hero-next{right:8px}
+  .features{padding:15px 0;gap:15px 0}
+  .feature{padding:0 9px;gap:9px}
+  .feature-icon{width:38px;height:38px;flex-basis:38px;font-size:17px}
+  .feature h3{font-size:10px}
+  .feature p{font-size:8px}
+  .marketplace{padding:26px 0}
+  .section-heading h2{font-size:17px}
+  .section-heading p{font-size:10px;max-width:260px}
+  .view-all{font-size:10px}
+  .offer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .offer-card{padding:12px 10px;min-height:255px}
+  .offer-profile{gap:7px}
+  .offer-avatar{width:38px;height:38px}
+  .offer-profile h3{font-size:9px}
+  .currency-pair{gap:4px;font-size:9px}
+  .offer-detail{font-size:8px}
+  .community-inner{align-items:flex-start;flex-direction:column}
+  .community-message{gap:13px}
+  .community-icon{width:58px;height:58px;flex-basis:58px;font-size:27px}
+  .community h2{font-size:16px}
+  .community-stats{width:100%;justify-content:space-between;gap:6px}
+  .community-stats div{padding-left:10px}
+  .community-stats strong{font-size:15px}
+  .community-stats span{font-size:8px}
+  .footer-inner{flex-wrap:wrap}
+  .footer-nav{order:3;width:100%;justify-content:center;gap:18px}
+  .footer-copyright{font-size:8px}
+}
+
+/* Small phones */
+@media(max-width:380px){
+  .brand-name{font-size:17px}
+  .brand-logo{width:34px}
+  .language-control span{display:none}
+  .hero h1{font-size:29px}
+  .hero-actions .btn{font-size:10px}
+  .offer-card{padding:10px 8px}
+  .offer-avatar{width:32px;height:32px}
+  .offer-profile h3{font-size:8px}
+  .currency-pair{font-size:8px}
+  .community-stats strong{font-size:13px}
+}
+</style>
+</head>
+
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="KwachaLink home">
+      <img class="brand-logo" src="Kwachalink Logo Black.png" alt="KwachaLink logo">
+      <span class="brand-copy">
+        <span class="brand-name">Kwacha<span>Link</span></span>
+        <span class="brand-tagline" data-i18n="tagline">Connect. Exchange. Grow.</span>
+      </span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+    <nav class="main-nav" id="mainNav">
+      <a class="active" href="index.html" data-i18n="home">Home</a>
+      <a href="explore.html" data-i18n="explore">Explore</a>
+      <a href="explore.html#members" data-i18n="members">Members</a>
+      <a href="about.html" data-i18n="about">About</a>
+      <a href="help.html" data-i18n="help">Help</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="search-link" href="explore.html" aria-label="Search">⌕</a>
+      <label class="language-control">
+        <span>◎</span>
+        <select id="languageSelect" aria-label="Choose language">
+          <option value="en">EN</option>
+          <option value="ny">NY</option>
+        </select>
+      </label>
+      <a class="btn btn-outline header-login" href="login.html" data-i18n="login">Login</a>
+      <a class="btn btn-gradient header-signup" href="register.html" data-i18n="signup">Sign Up</a>
+    </div>
+  </div>
+</header>
+
 <main>
-<section class="hero"><div class="container hero-grid"><div class="reveal"><span class="eyebrow"><span class="eyebrow-dot"></span> Malawi to the world</span><h1>Connect Across <span>Borders. Exchange</span> with Confidence.</h1><p class="lead">KwachaLink brings people together to exchange currencies, discover opportunities and grow together — safely, easily and globally.</p><div class="hero-actions"><a class="btn btn-primary" href="#marketplace">Explore Offers　→</a><a class="btn btn-outline" href="#create-post">Create a post</a></div><p class="trust-line">Agree on the amount, fees, payment method and terms before proceeding.</p></div><div class="hero-visual float"><img class="hero-photo" src="person-yellow-phone.jpg" alt="Woman using her smartphone to explore opportunities"><div class="photo-overlay"><div class="avatar-stack"><img src="person-phone.jpg" alt="Member profile example"><img src="person-yellow-phone.jpg" alt="Member profile example"><img src="person-phone.jpg" alt="Member profile example"></div><div class="overlay-copy"><strong>One connection can open a market</strong><span class="text-muted">China · UAE · South Africa · USA · Tanzania</span></div><span class="pill">Connect</span></div></div></div></section>
-<section class="feature-strip"><div class="container feature-strip-grid"><div class="feature-item"><span class="feature-icon">◎</span><div><strong>Multiple currencies</strong><small>USD, EUR, GBP, ZAR, CNY & more</small></div></div><div class="feature-item"><span class="feature-icon">♢</span><div><strong>Safer connections</strong><small>Discuss terms before exchanging</small></div></div><div class="feature-item"><span class="feature-icon">◎</span><div><strong>Global reach</strong><small>Local and international opportunities</small></div></div><div class="feature-item"><span class="feature-icon">↗</span><div><strong>Real opportunities</strong><small>Trade, support and grow together</small></div></div></div></section>
-<section class="section section-white marketplace-section" id="marketplace"><div class="container"><div class="section-head"><div><span class="eyebrow">Marketplace</span><h2>People buying and selling currencies</h2></div><p>See who wants to buy foreign currency and who has currency to sell. Browse the public summaries, then subscribe to view full details and connect.</p></div><div class="market-toolbar"><input id="market-search" type="search" placeholder="Search a person, currency or country" aria-label="Search listings"><select id="market-kind" aria-label="Filter by listing type"><option value="all">All posts</option><option value="request">Buying currency</option><option value="offer">Selling currency</option></select><select id="market-country" aria-label="Filter by country"><option value="all">All countries</option><option>China</option><option>South Africa</option><option>Tanzania</option><option>United States</option><option>UAE</option></select><a class="btn btn-primary" href="#create-post">＋ Create post</a></div><div class="offer-list" id="market-listings">
-<article class="offer-card marketplace-card" data-kind="request" data-country="China" data-search="innocent ghandi buying chinese yuan cny china kwacha supplier clothes">
-<div class="offer-top"><div class="member-line"><div class="person-avatar">IG</div><div><strong>Innocent Ghandi</strong><div class="member-sub">Community profile · Lilongwe</div></div></div><span class="tag tag-request">Buying currency</span></div>
-<h3>Looking to buy Chinese yuan</h3><div class="offer-amount">CNY 3,000 <span>wants to buy</span></div><div class="offer-meta"><span class="tag">🇨🇳 China</span><span class="tag">Paying in MWK</span><span class="tag">Supplier purchase</span></div><p class="listing-summary">Needs yuan to pay for clothing from a supplier. Exchange rate and meeting/payment terms to be agreed.</p><button class="btn btn-primary detail-gate" data-person="Innocent Ghandi" type="button">View person & details</button></article>
-<article class="offer-card marketplace-card" data-kind="offer" data-country="South Africa" data-search="edwin corrosо selling south african rand zar south africa kwacha">
-<div class="offer-top"><div class="member-line"><div class="person-avatar">EC</div><div><strong>Edwin Corroso</strong><div class="member-sub">Community profile · Blantyre</div></div></div><span class="tag tag-offer">Selling currency</span></div>
-<h3>Has South African rand available</h3><div class="offer-amount">ZAR 5,000 <span>wants to sell</span></div><div class="offer-meta"><span class="tag">🇿🇦 South Africa</span><span class="tag">Wants MWK</span><span class="tag">Rate negotiable</span></div><p class="listing-summary">Looking for a buyer in Malawi. Final exchange rate, availability and safe settlement method to be agreed.</p><button class="btn btn-primary detail-gate" data-person="Edwin Corroso" type="button">View person & details</button></article>
-<article class="offer-card marketplace-card" data-kind="request" data-country="Tanzania" data-search="flora m buying tanzanian shillings tzs tanzania kwacha">
-<div class="offer-top"><div class="member-line"><div class="person-avatar">FM</div><div><strong>Flora M.</strong><div class="member-sub">Member · Zomba</div></div></div><span class="tag tag-request">Buying currency</span></div>
-<h3>Needs Tanzanian shillings</h3><div class="offer-amount">TZS 500,000 <span>wants to buy</span></div><div class="offer-meta"><span class="tag">🇹🇿 Tanzania</span><span class="tag">Paying in MWK</span><span class="tag">Business needs</span></div><p class="listing-summary">Seeking shillings for a business-related purchase. Interested members can discuss rate and settlement details.</p><button class="btn btn-primary detail-gate" data-person="Flora M." type="button">View person & details</button></article>
-<article class="offer-card marketplace-card" data-kind="offer" data-country="United States" data-search="alex msukwa selling us dollars usd united states dollar kwacha">
-<div class="offer-top"><div class="member-line"><div class="person-avatar">AM</div><div><strong>Alex Msukwa</strong><div class="member-sub">Community profile · Lilongwe</div></div></div><span class="tag tag-offer">Selling currency</span></div>
-<h3>Has US dollars available</h3><div class="offer-amount">USD 250 <span>wants to sell</span></div><div class="offer-meta"><span class="tag">🇺🇸 United States</span><span class="tag">Wants MWK</span><span class="tag">Availability to confirm</span></div><p class="listing-summary">Looking to exchange dollars for kwacha. Rate and transaction arrangements must be agreed directly.</p><button class="btn btn-primary detail-gate" data-person="Alex Msukwa" type="button">View person & details</button></article>
-<article class="offer-card marketplace-card" data-kind="request" data-country="UAE" data-search="chrissy c buying dirham aed dubai uae united arab emirates kwacha">
-<div class="offer-top"><div class="member-line"><div class="person-avatar">CC</div><div><strong>Chrissy C</strong><div class="member-sub">Community profile · Lilongwe</div></div></div><span class="tag tag-request">Buying currency</span></div>
-<h3>Looking for UAE dirhams</h3><div class="offer-amount">AED 1,000 <span>wants to buy</span></div><div class="offer-meta"><span class="tag">🇦🇪 Dubai / UAE</span><span class="tag">Paying in MWK</span><span class="tag">Travel / shopping</span></div><p class="listing-summary">Needs dirhams for planned expenses. The rate, availability and safe method of exchange are to be confirmed.</p><button class="btn btn-primary detail-gate" data-person="Chrissy C" type="button">View person & details</button></article>
-<article class="offer-card marketplace-card" data-kind="offer" data-country="United States" data-search="bertha banda selling us dollars usd united states kwacha">
-<div class="offer-top"><div class="member-line"><div class="person-avatar">BB</div><div><strong>Bertha Banda</strong><div class="member-sub">Community profile · Zomba</div></div></div><span class="tag tag-offer">Selling currency</span></div>
-<h3>Has US dollars available</h3><div class="offer-amount">USD 180 <span>wants to sell</span></div><div class="offer-meta"><span class="tag">🇺🇸 United States</span><span class="tag">Wants MWK</span><span class="tag">Terms to agree</span></div><p class="listing-summary">Looking for someone who needs dollars. Rate, availability and settlement arrangements must be confirmed.</p><button class="btn btn-primary detail-gate" data-person="Bertha Banda" type="button">View person & details</button></article>
-</div><p id="market-empty" class="empty-state" hidden>No posts match your filters. Try another search or country.</p><p class="hint">Listings shown here illustrate the marketplace layout; identities and availability are not verified or live offers.</p></div></section>
-<section class="section" id="create-post"><div class="container"><div class="section-head"><div><span class="eyebrow">Join the marketplace</span><h2>Post the currency you want to buy or sell</h2></div><p>Free account registration is available. Subscription is required before revealing member details or initiating a connection.</p></div><div class="form-card"><form id="quick-post-form"><div class="form-grid"><div class="field"><label for="post-name">Your display name</label><input id="post-name" required maxlength="60" placeholder="e.g. Grace S."></div><div class="field"><label for="post-type">I want to…</label><select id="post-type" required><option value="request">Buy foreign currency</option><option value="offer">Sell foreign currency</option></select></div><div class="field"><label for="post-country">Currency / destination country</label><select id="post-country" required><option value="">Choose country</option><option>China</option><option>UAE</option><option>South Africa</option><option>United States</option><option>Tanzania</option><option>Other</option></select></div><div class="field"><label for="post-amount">Amount and currency</label><input id="post-amount" required maxlength="70" placeholder="e.g. Need USD 250 or selling ZAR 5,000"></div><div class="field span-2"><label for="post-purpose">What currency do you need or have?</label><input id="post-purpose" required maxlength="140" placeholder="e.g. Buying USD for online purchases"></div><div class="field span-2"><label for="post-summary">Short public summary</label><textarea id="post-summary" required maxlength="300" placeholder="Describe the currency you want to buy or sell, your preferred terms, and any relevant purpose. Do not include passwords or sensitive payment credentials."></textarea></div></div><button class="btn btn-primary" type="submit">Preview my post</button><p id="post-feedback" class="success" hidden></p><p class="hint">This front-end preview saves posts only in this browser. Publishing to all users requires the secure backend.</p></form></div></div></section>
-<section class="section section-white"><div class="container"><div class="price-band"><div><span class="eyebrow">Subscribe when you are ready</span><h2 style="margin-top:18px">See the details. Make the connection.</h2><p>Create a free account and browse public post summaries. A subscription unlocks member details and connection features.</p><ul class="check-list"><li>View full member profiles and relevant details</li><li>Connect with buyers and payment helpers</li><li>Track connected deals and confirmations</li></ul></div><div class="price-panel"><div class="price-amount">MK 4,999 <small>/ month</small></div><p>Monthly connection membership</p><a class="btn btn-yellow" href="register.html">Create your account</a><p class="small" style="margin:12px 0 0">Subscription checkout and payment verification must be connected before real payments can be confirmed.</p></div></div></div></section>
-<section class="section"><div class="container"><div class="section-head"><div><span class="eyebrow">Starting markets</span><h2>Connect across borders</h2></div><p>Explore opportunities involving these destinations and other countries.</p></div><div class="country-grid"><div class="country"><span>🇨🇳</span>China</div><div class="country"><span>🇦🇪</span>Dubai / UAE</div><div class="country"><span>🇿🇦</span>South Africa</div><div class="country"><span>🇺🇸</span>United States</div><div class="country"><span>🇹🇿</span>Tanzania</div></div></div></section>
-<section class="section section-white"><div class="container"><div class="cta"><div><h2>Join a growing community</h2><p class="text-muted" style="margin:0">Whether you’re looking to exchange, support or grow — KwachaLink gives you the tools, people and opportunities to make it happen.</p></div><div class="hero-actions" style="margin:0"><a class="btn btn-primary" href="register.html">Create free account</a><a class="btn btn-outline" href="help.html">Read safety tips</a></div></div></div></section>
-</main><div class="modal-backdrop" id="subscribe-modal" hidden><section class="subscribe-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><button class="modal-close" id="close-modal" aria-label="Close">×</button><span class="eyebrow">Member connection</span><h2 id="modal-title">Unlock member details</h2><p id="modal-copy">Subscribe to reveal profile and connection details.</p><div class="price-amount">MK 4,999 <small>/ month</small></div><p class="hint">The membership payment service is not connected yet. No payment has been taken.</p><div class="hero-actions"><a class="btn btn-primary" href="register.html">Register / subscribe</a><button class="btn btn-outline" id="cancel-modal" type="button">Maybe later</button></div></section></div>
-<footer class="footer"><div class="container"><div class="footer-grid"><div><a class="brand" href="index.html"><span class="brand-mark">K</span>KwachaLink</a><p style="margin-top:16px;max-width:390px">Connecting people who need international payment help with people who may be able to assist.</p></div><div><h3 style="color:#fff">Marketplace</h3><div class="footer-links"><a href="#marketplace">Browse posts</a><a href="#create-post">Create a post</a><a href="register.html">Create an account</a></div></div><div><h3 style="color:#fff">Support</h3><div class="footer-links"><a href="about.html">About KwachaLink</a><a href="help.html">Help and safety</a><a href="messages.html">Messages</a></div></div></div><div class="footer-bottom">© <span data-year></span> KwachaLink. Agree on all terms and use permitted, trusted payment channels.</div></div></footer><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="script.js" defer></script></body></html>
+<section class="hero" aria-label="KwachaLink introduction">
+
+  <div class="hero-slide active" data-slide style="background-image:url('person-phone.jpg')">
+    <div class="container hero-content">
+      <div class="hero-copy">
+        <span class="hero-eyebrow" data-i18n="eyebrow">Your Trusted Currency Exchange Community</span>
+        <h1>
+          <span data-i18n="line1">Connect Across</span><br>
+          <span class="text-yellow" data-i18n="line2">Borders.</span>
+          <span class="text-pink" data-i18n="line3">Exchange</span><br>
+          <span data-i18n="line4">with Confidence.</span>
+        </h1>
+        <p data-i18n="heroDesc">KwachaLink brings people together to exchange currencies, discover opportunities and grow together — safely, easily and globally.</p>
+        <div class="hero-actions">
+          <a class="btn btn-gradient" href="explore.html"><span data-i18n="exploreOffers">Explore Offers</span> →</a>
+          <a class="btn btn-outline" href="register.html">♙ <span data-i18n="join">Join KwachaLink</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-slide" data-slide style="background-image:url('person-yellow-phone.jpg')">
+    <div class="container hero-content">
+      <div class="hero-copy">
+        <span class="hero-eyebrow" data-i18n="eyebrow2">More Connections. More Opportunities.</span>
+        <h1 data-i18n="slideTitle">Connect Globally.<br>Exchange Confidently.</h1>
+        <p data-i18n="slideDesc">Discover currency exchange opportunities and connect with people across borders.</p>
+        <div class="hero-actions">
+          <a class="btn btn-gradient" href="explore.html" data-i18n="exploreOffers">Explore Offers</a>
+          <a class="btn btn-outline" href="register.html" data-i18n="join">Join KwachaLink</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="hero-arrow hero-prev" id="prevSlide" aria-label="Previous slide">‹</button>
+  <button class="hero-arrow hero-next" id="nextSlide" aria-label="Next slide">›</button>
+
+  <div class="hero-dots">
+    <button class="active" data-dot="0" aria-label="Show slide 1"></button>
+    <button data-dot="1" aria-label="Show slide 2"></button>
+  </div>
+</section>
+
+<section class="feature-strip">
+  <div class="container features">
+    <article class="feature">
+      <span class="feature-icon">💱</span>
+      <div><h3 data-i18n="currencies">Multiple Currencies</h3><p>USD, EUR, GBP, ZAR, CNY &amp; more</p></div>
+    </article>
+    <article class="feature">
+      <span class="feature-icon">🛡️</span>
+      <div><h3 data-i18n="secure">Secure Community</h3><p data-i18n="secureSub">Safer connections and community tools</p></div>
+    </article>
+    <article class="feature">
+      <span class="feature-icon">🌐</span>
+      <div><h3 data-i18n="global">Global Reach</h3><p data-i18n="globalSub">Local and international exchanges</p></div>
+    </article>
+    <article class="feature">
+      <span class="feature-icon">🤝</span>
+      <div><h3 data-i18n="opportunities">Exchange Opportunities</h3><p data-i18n="opportunitiesSub">Connect, support and grow together</p></div>
+    </article>
+  </div>
+</section>
+
+<section class="marketplace" id="marketplace">
+  <div class="container">
+    <div class="section-heading">
+      <div>
+        <h2><span class="heading-dash"></span><span data-i18n="marketTitle">Explore the Marketplace</span></h2>
+        <p data-i18n="marketSub">Find exchange opportunities from community members.</p>
+      </div>
+      <a class="view-all" href="explore.html" data-i18n="viewAll">View All Offers →</a>
+    </div>
+
+    <div class="offer-grid">
+
+      <article class="offer-card">
+        <button class="favorite" aria-label="Favorite offer" aria-pressed="false">♡</button>
+        <div class="offer-profile">
+          <img src="person-phone.jpg" class="offer-avatar" alt="Profile photo">
+          <div><h3>Innocent Ghandi</h3><span class="tag tag-buy" data-i18n="buying">Buying</span></div>
+        </div>
+        <div class="currency-pair"><span>🇨🇳 CNY</span><span>↔</span><span>🇲🇼 MWK</span></div>
+        <div class="offer-amount">¥ 50,000</div>
+        <p class="offer-detail">Rate: 1 CNY = 180 MWK</p>
+        <p class="offer-detail">Min: 5,000 | Max: 50,000</p>
+        <p class="offer-location">♧ Lilongwe, Malawi</p>
+        <p class="offer-contact">◉ Chat · WhatsApp</p>
+        <a class="btn btn-card" href="explore.html" data-i18n="viewOffer">View Offer</a>
+      </article>
+
+      <article class="offer-card">
+        <button class="favorite" aria-label="Favorite offer" aria-pressed="false">♡</button>
+        <div class="offer-profile">
+          <img src="person-yellow-phone.jpg" class="offer-avatar" alt="Profile photo">
+          <div><h3>Edwin Koloso</h3><span class="tag tag-sell" data-i18n="selling">Selling</span></div>
+        </div>
+        <div class="currency-pair"><span>🇿🇦 ZAR</span><span>↔</span><span>🇲🇼 MWK</span></div>
+        <div class="offer-amount">R 20,000</div>
+        <p class="offer-detail">Rate: 1 ZAR = 110 MWK</p>
+        <p class="offer-detail">Min: 2,000 | Max: 20,000</p>
+        <p class="offer-location">♧ Blantyre, Malawi</p>
+        <p class="offer-contact">◉ Chat · WhatsApp</p>
+        <a class="btn btn-card" href="explore.html" data-i18n="viewOffer">View Offer</a>
+      </article>
+
+      <article class="offer-card">
+        <button class="favorite" aria-label="Favorite offer" aria-pressed="false">♡</button>
+        <div class="offer-profile">
+          <img src="currency-dirham.jpg" class="offer-avatar" alt="Profile photo">
+          <div><h3>Chrissy C</h3><span class="tag tag-buy" data-i18n="buying">Buying</span></div>
+        </div>
+        <div class="currency-pair"><span>🇦🇪 AED</span><span>↔</span><span>🇲🇼 MWK</span></div>
+        <div class="offer-amount">AED 15,000</div>
+        <p class="offer-detail">Rate: 1 AED = 300 MWK</p>
+        <p class="offer-detail">Min: 1,000 | Max: 15,000</p>
+        <p class="offer-location">♧ Lilongwe, Malawi</p>
+        <p class="offer-contact">◉ Chat · WhatsApp</p>
+        <a class="btn btn-card" href="explore.html" data-i18n="viewOffer">View Offer</a>
+      </article>
+
+      <article class="offer-card">
+        <button class="favorite" aria-label="Favorite offer" aria-pressed="false">♡</button>
+        <div class="offer-profile">
+          <img src="person-phone.jpg" class="offer-avatar" alt="Profile photo">
+          <div><h3>Alex Msukwa</h3><span class="tag tag-sell" data-i18n="selling">Selling</span></div>
+        </div>
+        <div class="currency-pair"><span>🇺🇸 USD</span><span>↔</span><span>🇲🇼 MWK</span></div>
+        <div class="offer-amount">$ 5,000</div>
+        <p class="offer-detail">Rate: 1 USD = 1,750 MWK</p>
+        <p class="offer-detail">Min: 500 | Max: 5,000</p>
+        <p class="offer-location">♧ Zomba, Malawi</p>
+        <p class="offer-contact">◉ Chat · WhatsApp</p>
+        <a class="btn btn-card" href="explore.html" data-i18n="viewOffer">View Offer</a>
+      </article>
+
+      <article class="offer-card">
+        <button class="favorite" aria-label="Favorite offer" aria-pressed="false">♡</button>
+        <div class="offer-profile">
+          <img src="currency-tanzania.jpg" class="offer-avatar" alt="Profile photo">
+          <div><h3>Jukalo K</h3><span class="tag tag-buy" data-i18n="buying">Buying</span></div>
+        </div>
+        <div class="currency-pair"><span>🇹🇿 TZS</span><span>↔</span><span>🇲🇼 MWK</span></div>
+        <div class="offer-amount">TSh 1,000,000</div>
+        <p class="offer-detail">Rate: 1 TZS = 4.2 MWK</p>
+        <p class="offer-detail">Min: 100,000 | Max: 1,000,000</p>
+        <p class="offer-location">♧ Blantyre, Malawi</p>
+        <p class="offer-contact">◉ Chat · WhatsApp</p>
+        <a class="btn btn-card" href="explore.html" data-i18n="viewOffer">View Offer</a>
+      </article>
+
+      <article class="offer-card">
+        <button class="favorite" aria-label="Favorite offer" aria-pressed="false">♡</button>
+        <div class="offer-profile">
+          <img src="currency-dirham.jpg" class="offer-avatar" alt="Profile photo">
+          <div><h3>Flora Mto</h3><span class="tag tag-sell" data-i18n="selling">Selling</span></div>
+        </div>
+        <div class="currency-pair"><span>🇦🇪 AED</span><span>↔</span><span>🇲🇼 MWK</span></div>
+        <div class="offer-amount">AED 10,000</div>
+        <p class="offer-detail">Rate: 1 AED = 295 MWK</p>
+        <p class="offer-detail">Min: 500 | Max: 10,000</p>
+        <p class="offer-location">♧ Lilongwe, Malawi</p>
+        <p class="offer-contact">◉ Chat · WhatsApp</p>
+        <a class="btn btn-card" href="explore.html" data-i18n="viewOffer">View Offer</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="community">
+  <div class="container community-inner">
+    <div class="community-message">
+      <span class="community-icon">📱</span>
+      <div>
+        <h2 data-i18n="joinCommunity">Join a growing community</h2>
+        <p data-i18n="communityDesc">Whether you want to exchange, support or grow, KwachaLink helps you connect with opportunities.</p>
+        <a class="btn btn-gradient" href="register.html" data-i18n="createAccount">Create Your Account →</a>
+      </div>
+    </div>
+
+    <div class="community-stats">
+      <div><strong>6+</strong><span data-i18n="activeMembers">Community profiles</span></div>
+      <div><strong>Multiple</strong><span data-i18n="currencies">Currencies</span></div>
+      <div><strong>Secure</strong><span data-i18n="platform">Platform tools</span></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <a class="brand" href="index.html">
+      <img class="brand-logo" src="Kwacha logo white.png" alt="KwachaLink logo">
+      <span class="brand-copy">
+        <span class="brand-name">Kwacha<span>Link</span></span>
+        <span class="brand-tagline" data-i18n="tagline">Connect. Exchange. Grow.</span>
+      </span>
+    </a>
+
+    <nav class="footer-nav">
+      <a href="index.html" data-i18n="home">Home</a>
+      <a href="explore.html" data-i18n="explore">Explore</a>
+      <a href="explore.html#members" data-i18n="members">Members</a>
+      <a href="about.html" data-i18n="about">About</a>
+      <a href="help.html" data-i18n="help">Help</a>
+    </nav>
+
+    <p class="footer-copyright">© <span id="year"></span> KwachaLink · Built by ElevateMw</p>
+  </div>
+</footer>
+
+<script>
+(()=>{
+'use strict';
+
+const translations={
+en:{
+tagline:'Connect. Exchange. Grow.',
+home:'Home',
+explore:'Explore',
+members:'Members',
+about:'About',
+help:'Help',
+login:'Login',
+signup:'Sign Up',
+eyebrow:'Your Trusted Currency Exchange Community',
+line1:'Connect Across',
+line2:'Borders.',
+line3:'Exchange',
+line4:'with Confidence.',
+heroDesc:'KwachaLink brings people together to exchange currencies, discover opportunities and grow together — safely, easily and globally.',
+exploreOffers:'Explore Offers',
+join:'Join KwachaLink',
+eyebrow2:'More Connections. More Opportunities.',
+slideTitle:'Connect Globally.<br>Exchange Confidently.',
+slideDesc:'Discover currency exchange opportunities and connect with people across borders.',
+currencies:'Multiple Currencies',
+secure:'Secure Community',
+secureSub:'Safer connections and community tools',
+global:'Global Reach',
+globalSub:'Local and international exchanges',
+opportunities:'Exchange Opportunities',
+opportunitiesSub:'Connect, support and grow together',
+marketTitle:'Explore the Marketplace',
+marketSub:'Find exchange opportunities from community members.',
+viewAll:'View All Offers →',
+buying:'Buying',
+selling:'Selling',
+viewOffer:'View Offer',
+joinCommunity:'Join a growing community',
+communityDesc:'Whether you want to exchange, support or grow, KwachaLink helps you connect with opportunities.',
+createAccount:'Create Your Account →',
+activeMembers:'Community profiles',
+platform:'Platform tools'
+},
+ny:{
+tagline:'Lumikizanani. Sinthanitsani. Kulani.',
+home:'Poyambira',
+explore:'Onani',
+members:'Mamembala',
+about:'Za ife',
+help:'Thandizo',
+login:'Lowani',
+signup:'Lembetsani',
+eyebrow:'Gulu Lodalirika Losinthana Ndalama',
+line1:'Lumikizanani',
+line2:'Kudutsa Malire.',
+line3:'Sinthanitsani',
+line4:'Molimba Mtima.',
+heroDesc:'KwachaLink imathandiza anthu kulumikizana, kusinthana ndalama ndi kupeza mwayi wokulira limodzi.',
+exploreOffers:'Onani Zopereka',
+join:'Lowani KwachaLink',
+eyebrow2:'Kulumikizana Kwambiri. Mwayi Wambiri.',
+slideTitle:'Lumikizanani Padziko Lonse. Sinthanitsani Molimba Mtima.',
+slideDesc:'Pezani mwayi wosinthana ndalama ndi kulumikizana ndi anthu kudutsa malire.',
+currencies:'Ndalama Zosiyanasiyana',
+secure:'Gulu Lotetezeka',
+secureSub:'Kulumikizana kotetezeka ndi zida za gulu',
+global:'Padziko Lonse',
+globalSub:'Kusinthana kwanuko ndi kwamayiko ena',
+opportunities:'Mwayi Wosinthana',
+opportunitiesSub:'Lumikizanani, thandizani ndi kukulira limodzi',
+marketTitle:'Onani Msika',
+marketSub:'Pezani mwayi wosinthana kuchokera kwa mamembala.',
+viewAll:'Onani Zonse →',
+buying:'Akugula',
+selling:'Akugulitsa',
+viewOffer:'Onani Chopereka',
+joinCommunity:'Lowani m’gulu lomwe likukula',
+communityDesc:'KwachaLink imakuthandizani kulumikizana ndi anthu ndi mwayi watsopano.',
+createAccount:'Pangani Akaunti →',
+activeMembers:'Mbiri za gulu',
+platform:'Zida za nsanja'
+}
+};
+
+const langSelect=document.getElementById('languageSelect');
+
+function setLanguage(lang){
+  const dict=translations[lang]||translations.en;
+  document.documentElement.lang=lang==='ny'?'ny':'en';
+
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key=el.dataset.i18n;
+    if(dict[key]){
+      if(key==='slideTitle'){
+        el.innerHTML=dict[key];
+      }else{
+        el.textContent=dict[key];
+      }
+    }
+  });
+
+  try{
+    localStorage.setItem('kwachal-language',lang);
+  }catch(e){}
+}
+
+try{
+  const saved=localStorage.getItem('kwachal-language');
+  if(saved&&translations[saved])langSelect.value=saved;
+}catch(e){}
+
+setLanguage(langSelect.value);
+langSelect.addEventListener('change',e=>setLanguage(e.target.value));
+
+/* Mobile navigation */
+const menu=document.getElementById('mainNav');
+const toggle=document.getElementById('menuToggle');
+
+toggle.addEventListener('click',()=>{
+  const open=menu.classList.toggle('open');
+  toggle.setAttribute('aria-expanded',String(open));
+  toggle.textContent=open?'×':'☰';
+});
+
+menu.querySelectorAll('a').forEach(a=>{
+  a.addEventListener('click',()=>{
+    menu.classList.remove('open');
+    toggle.setAttribute('aria-expanded','false');
+    toggle.textContent='☰';
+  });
+});
+
+/* Hero slider */
+const slides=[...document.querySelectorAll('[data-slide]')];
+const dots=[...document.querySelectorAll('[data-dot]')];
+let current=0;
+let timer;
+
+function showSlide(n){
+  current=(n+slides.length)%slides.length;
+  slides.forEach((s,i)=>s.classList.toggle('active',i===current));
+  dots.forEach((d,i)=>d.classList.toggle('active',i===current));
+}
+
+function restart(){
+  clearInterval(timer);
+  timer=setInterval(()=>showSlide(current+1),6500);
+}
+
+document.getElementById('prevSlide').addEventListener('click',()=>{
+  showSlide(current-1);
+  restart();
+});
+
+document.getElementById('nextSlide').addEventListener('click',()=>{
+  showSlide(current+1);
+  restart();
+});
+
+dots.forEach(d=>{
+  d.addEventListener('click',()=>{
+    showSlide(Number(d.dataset.dot));
+    restart();
+  });
+});
+
+restart();
+
+/* Favorite buttons */
+document.querySelectorAll('.favorite').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const on=btn.classList.toggle('is-favorite');
+    btn.textContent=on?'♥':'♡';
+    btn.setAttribute('aria-pressed',String(on));
+  });
+});
+
+/* Current year */
+document.getElementById('year').textContent=new Date().getFullYear();
+
+})();
+</script>
+</body>
+</html>

@@ -2,12 +2,12 @@
 /* BeanzNezz frontend demo. Browser storage is not a secure database. */
 const BN = (() => {
   const profiles = [
-    {id:1,name:"Thoko",age:27,location:"Lilongwe",gender:"Woman",bio:"Book lover, weekend explorer, and believer in honest conversations.",interests:["Books","Travel","Food"],image:"https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80"},
-    {id:2,name:"Chisomo",age:30,location:"Blantyre",gender:"Man",bio:"I enjoy live music, trying new places, and building meaningful connections.",interests:["Music","Cooking","Fitness"],image:"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80"},
-    {id:3,name:"Memory",age:25,location:"Zomba",gender:"Woman",bio:"Creative soul who loves nature, laughter, and thoughtful people.",interests:["Nature","Art","Coffee"],image:"https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80"},
-    {id:4,name:"Tapiwa",age:32,location:"Mzuzu",gender:"Man",bio:"Entrepreneur, football fan, and curious about the world.",interests:["Football","Business","Travel"],image:"https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80"},
-    {id:5,name:"Lydia",age:29,location:"Mangochi",gender:"Woman",bio:"Beach sunsets, family time, and a good sense of humour matter to me.",interests:["Nature","Family","Food"],image:"https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80"},
-    {id:6,name:"Patrick",age:28,location:"Lilongwe",gender:"Man",bio:"Easy-going, ambitious, and happiest when discovering a new restaurant.",interests:["Food","Tech","Music"],image:"https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=800&q=80"}
+    {id:1,name:"Thoko",age:27,location:"Lilongwe",gender:"Woman",bio:"Book lover, weekend explorer, and believer in honest conversations.",interests:["Books","Travel","Food"],image:"https://images.unsplash.com/photo-1779181668325-6f918a73bb54?auto=format&fit=crop&w=1000&q=85"},
+    {id:2,name:"Chisomo",age:30,location:"Blantyre",gender:"Man",bio:"I enjoy live music, trying new places, and building meaningful connections.",interests:["Music","Cooking","Fitness"],image:"https://images.unsplash.com/photo-1776781205743-33b4c1106adc?auto=format&fit=crop&w=1000&q=85"},
+    {id:3,name:"Memory",age:25,location:"Zomba",gender:"Woman",bio:"Creative soul who loves nature, laughter, and thoughtful people.",interests:["Nature","Art","Coffee"],image:"https://images.unsplash.com/photo-1758600435036-0c958b8b9704?auto=format&fit=crop&w=1000&q=85"},
+    {id:4,name:"Tapiwa",age:32,location:"Mzuzu",gender:"Man",bio:"Entrepreneur, football fan, and curious about the world.",interests:["Football","Business","Travel"],image:"https://images.unsplash.com/photo-1761370980996-c92582de0fe7?auto=format&fit=crop&w=1000&q=85"},
+    {id:5,name:"Lydia",age:29,location:"Mangochi",gender:"Woman",bio:"Beach sunsets, family time, and a good sense of humour matter to me.",interests:["Nature","Family","Food"],image:"https://images.unsplash.com/photo-1709402740448-c00125bc4e6f?auto=format&fit=crop&w=1000&q=85"},
+    {id:6,name:"Patrick",age:28,location:"Lilongwe",gender:"Man",bio:"Easy-going, ambitious, and happiest when discovering a new restaurant.",interests:["Food","Tech","Music"],image:"https://images.unsplash.com/photo-1622013384127-17206033d247?auto=format&fit=crop&w=1000&q=85"}
   ];
   const read = (key, fallback) => { try { const v=localStorage.getItem("bn_"+key); return v?JSON.parse(v):fallback; } catch(e){return fallback;} };
   const write = (key, value) => { try { localStorage.setItem("bn_"+key,JSON.stringify(value)); } catch(e){} };
@@ -92,4 +92,102 @@ const BN = (() => {
   };
   document.addEventListener("DOMContentLoaded",()=>{initNav();initBrowse();initSignup();initLogin();initProfileWizard();initMembership();initLikes();initMatches();initMessages();initSettings();initGeneric();});
   return {profiles,plans,toast,like,resetFilters,filterProfiles,money};
+
+  const initLanguage = () => {
+    const select = document.getElementById("language-select");
+    if (!select) return;
+    let current = "en";
+    try { current = localStorage.getItem("bn_language") || "en"; } catch(e) {}
+    select.value = current;
+    const translations = {
+      ny: {
+        "Home":"Kunyumba",
+        "Discover":"Fufuzani",
+        "Browse":"Fufuzani anthu",
+        "Search":"Sakani",
+        "Likes":"Okondedwa",
+        "Matches":"Ogwirizana",
+        "Messages":"Mauthenga",
+        "Notifications":"Zidziwitso",
+        "Membership":"Umembala",
+        "Profile":"Mbiri yanga",
+        "Settings":"Zokonda",
+        "Safety":"Chitetezo",
+        "Log in":"Lowani",
+        "Sign up":"Lembetsani",
+        "Join BeanzNezz":"Lowani ku BeanzNezz",
+        "Find meaningful connections":"Pezani anthu oti mugwirizane nawo",
+        "Meet people who match your vibe":"Kumanani ndi anthu ogwirizana ndi inu",
+        "Create account":"Pangani akaunti",
+        "Get started":"Yambani",
+        "View profile":"Onani mbiri",
+        "Like":"Konda",
+        "Pass":"Pitani patsogolo",
+        "Continue":"Pitilizani",
+        "Save changes":"Sungani zosintha",
+        "Choose a membership plan":"Sankhani umembala",
+        "English":"Chingerezi",
+        "Chichewa":"Chichewa"
+      }
+    };
+    const translate = (lang) => {
+      const dict = translations[lang] || {};
+      document.querySelectorAll("h1,h2,h3,p,a,button,label,option,.eyebrow,.nav-links a").forEach(el => {
+        if (el.children.length && !el.matches("button,a,label")) return;
+        if (el.dataset.originalText === undefined) el.dataset.originalText = el.textContent.trim();
+        const original = el.dataset.originalText;
+        if (lang === "ny" && dict[original]) el.textContent = dict[original];
+        else if (lang === "en") el.textContent = original;
+      });
+      document.documentElement.lang = lang === "ny" ? "ny" : "en";
+    };
+    translate(current);
+    select.addEventListener("change", () => {
+      current = select.value;
+      try { localStorage.setItem("bn_language", current); } catch(e) {}
+      translate(current);
+      if (typeof BN !== "undefined" && BN.toast) BN.toast(current === "ny" ? "Chichewa yasankhidwa. Zina mwa mawu zidzamasuliridwa." : "English selected.");
+    });
+  };
 })();
+
+
+/* Language preference bootstrapping; Chichewa translations are a progressive interface aid. */
+document.addEventListener("DOMContentLoaded", () => {
+  const select = document.getElementById("language-select");
+  if (!select) return;
+  const dict = {
+    "Home":"Kunyumba","Discover":"Fufuzani","Browse":"Fufuzani anthu","Search":"Sakani",
+    "Likes":"Okondedwa","Matches":"Ogwirizana","Messages":"Mauthenga","Notifications":"Zidziwitso",
+    "Membership":"Umembala","Profile":"Mbiri yanga","Settings":"Zokonda","Safety":"Chitetezo",
+    "Log in":"Lowani","Sign up":"Lembetsani","Join BeanzNezz":"Lowani ku BeanzNezz",
+    "Find meaningful connections":"Pezani anthu oti mugwirizane nawo",
+    "Meet people who match your vibe":"Kumanani ndi anthu ogwirizana ndi inu",
+    "Create account":"Pangani akaunti","Get started":"Yambani","View profile":"Onani mbiri",
+    "Like":"Konda","Pass":"Pitani patsogolo","Continue":"Pitilizani","Save changes":"Sungani zosintha",
+    "Choose a membership plan":"Sankhani umembala"
+  };
+  let lang = "en";
+  try { lang = localStorage.getItem("bn_language") || "en"; } catch(e) {}
+  select.value = lang;
+  const apply = () => {
+    const useNy = select.value === "ny";
+    document.querySelectorAll("h1,h2,h3,p,a,button,label,.eyebrow,.nav-links a").forEach(el => {
+      if (el.dataset.bnOriginal === undefined) el.dataset.bnOriginal = el.textContent.trim();
+      const original = el.dataset.bnOriginal;
+      if (useNy && dict[original]) el.textContent = dict[original];
+      else if (!useNy) el.textContent = original;
+    });
+    document.documentElement.lang = useNy ? "ny" : "en";
+  };
+  apply();
+  select.addEventListener("change", () => {
+    try { localStorage.setItem("bn_language", select.value); } catch(e) {}
+    apply();
+    const toast = document.querySelector(".toast");
+    if (toast) {
+      toast.textContent = select.value === "ny" ? "Chichewa yasankhidwa." : "English selected.";
+      toast.classList.remove("hidden");
+    }
+  });
+});
